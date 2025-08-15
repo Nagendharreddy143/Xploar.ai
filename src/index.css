@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+/* Theme customization (Tailwind v4 way) */
+@theme {
+  --font-inter: "Inter", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+
+  --color-cosmic-indigo: #2b2f77;
+  --color-ice-white: #fdfdfd;
+  --color-electric-aqua: #4ae3b5;
+  --color-neon-lilac: #c39bff;
+  --color-void-black: #111111;
+  --color-card-text: #444444;
+}
+
+/* Fix for horizontal overflow on mobile */
+html,
+body {
+  overflow-x: hidden;
+  background-color: var(--color-ice-white);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom timeline pseudo-elements for connecting dots */
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 4px solid var(--color-electric-aqua);
+  top: 1.5rem; /* Adjusted for better alignment */
+  z-index: 1;
+}
+
+/* Desktop timeline alignment */
+@media (min-width: 768px) {
+  .timeline-item::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Mobile timeline alignment */
+@media (max-width: 767px) {
+  #timeline-thread {
+    left: 1rem !important;
+    transform: translateX(0) !important;
+  }
+  .timeline-item::after {
+    left: 1rem;
+    transform: translateX(-50%);
+  }
+  .timeline-card-wrapper {
+    width: 100%;
+    padding-left: 3rem; /* Space for the timeline line */
+  }
+  .timeline-item {
+    justify-content: flex-start !important;
+  }
+}
+
+/* Interactive Dot Background */
+#dot-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* --- Animation Keyframes --- */
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float-delayed {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* --- Animation Utility Classes --- */
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+.animate-scan {
+  animation: scan 3s linear infinite;
+}
+
+.animate-fadeInLeft {
+  animation: fadeInLeft 1s ease-out;
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight 1s ease-out 0.3s both;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 3s ease-in-out infinite 1.5s;
+}
