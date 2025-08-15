@@ -3,12 +3,15 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 import "./index.css";
-import "ionicons"; // Import ionicons
+import { ModalProvider } from "./context/ModalContext"; // 1. Import the provider
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      {/* 2. Wrap your App component with the ModalProvider */}
+      <ModalProvider>
+        <App />
+      </ModalProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
