@@ -1,64 +1,266 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+function CalendarIcon(props){return(<svg viewBox="0 0 24 24" {...props}><rect x="3" y="4" width="18" height="17" rx="3" fill="none" stroke="currentColor"/><path d="M8 2v4M16 2v4M3 9h18" stroke="currentColor"/><circle cx="9" cy="13" r="1" fill="currentColor"/><circle cx="13" cy="13" r="1" fill="currentColor"/><circle cx="17" cy="13" r="1" fill="currentColor"/></svg>)}
+function StreakIcon(props){return(<svg viewBox="0 0 24 24" {...props}><path d="M12 2s2 3 2 6-2 4-2 6 2 3 2 6c0 0-2-1-4-3s-3-5 0-8 2-7 2-7z" fill="none" stroke="currentColor"/></svg>)}
+function McqIcon(props){return(<svg viewBox="0 0 24 24" {...props}><rect x="3" y="4" width="18" height="16" rx="3" fill="none" stroke="currentColor"/><path d="M7 9h6M7 13h10" stroke="currentColor"/><circle cx="6" cy="9" r="1" fill="currentColor"/><circle cx="6" cy="13" r="1" fill="currentColor"/></svg>)}
+function DocIcon(props){return(<svg viewBox="0 0 24 24" {...props}><path d="M7 3h7l4 4v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor"/><path d="M14 3v5h5" stroke="currentColor"/><path d="M8 11h8M8 15h6" stroke="currentColor"/></svg>)}
+function MicIcon(props){return(<svg viewBox="0 0 24 24" {...props}><rect x="9" y="3" width="6" height="10" rx="3" fill="none" stroke="currentColor"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3" stroke="currentColor"/></svg>)}
+function CardsIcon(props){return(<svg viewBox="0 0 24 24" {...props}><rect x="4" y="6" width="10" height="12" rx="2" fill="none" stroke="currentColor"/><rect x="10" y="4" width="10" height="12" rx="2" fill="none" stroke="currentColor"/></svg>)}
+function DebateIcon(props){return(<svg viewBox="0 0 24 24" {...props}><path d="M4 18v-6h7v6l-3.5-2zM13 16v-8h7v8l-3.5-2z" fill="none" stroke="currentColor"/></svg>)}
+function SparkIcon(props){return(<svg viewBox="0 0 24 24" {...props}><path d="M12 2v5M12 17v5M2 12h5M17 12h5M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3" stroke="currentColor"/></svg>)}
+function ShieldIcon(props){return(<svg viewBox="0 0 24 24" {...props}><path d="M12 3l8 3v6c0 5-3.6 8-8 9-4.4-1-8-4-8-9V6z" fill="none" stroke="currentColor"/></svg>)}
+function ClockIcon(props){return(<svg viewBox="0 0 24 24" {...props}><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor"/><path d="M12 7v6l4 2" stroke="currentColor"/></svg>)}
+
+function Chip({children}){return(<span className="rounded-full border border-white/15 px-2.5 py-1 text-xs text-slate-200">{children}</span>)}
+function Tag({children}){return(<span className="rounded-md bg-white/5 px-2 py-1 text-xs text-slate-200 border border-white/10">{children}</span>)}
+function Bubble({children, glow}){return(<span className={`grid place-items-center h-7 w-7 rounded-full border border-white/15 ${glow?"shadow-[0_0_20px_rgba(99,102,241,.6)]":""}`}>{children}</span>)}
+function Card({children}){return(<span className="rounded-lg border border-white/15 bg-white/5 px-2.5 py-1 text-xs">{children}</span>)}
+function Check({dim}){return(<span className={`text-base ${dim?"opacity-50":""}`} aria-hidden>✓</span>)}
+function Flame(){return(<span className="animate-pulse">🔥</span>)}
+function Progress({value}){return(
+  <div className="flex items-center gap-2">
+    <div className="h-2 w-28 overflow-hidden rounded bg-white/10">
+      <div className="h-full bg-white/80" style={{ width: `${value}%` }} />
+    </div>
+    <span className="text-xs text-slate-300">{value}%</span>
+  </div>
+)}
+function Bar({value,label}){return(
+  <div className="flex items-center gap-2">
+    <span className="text-xs text-slate-300">{label}</span>
+    <div className="h-2 w-24 overflow-hidden rounded bg-white/10">
+      <motion.div initial={{ width: 0 }} animate={{ width: `${value}%` }} transition={{ duration: .9 }} className="h-full bg-white/80"/>
+    </div>
+  </div>
+)}
+function Wave(){
+  return (
+    <div className="flex gap-1">
+      {[0,1,2,3,4].map((n)=> (
+        <motion.span key={n} initial={{ height: 6 }} animate={{ height: [6,18,8,22,6] }} transition={{ duration: .9, repeat: Infinity, delay: n*0.08 }} className="w-1 rounded bg-white/80"/>
+      ))}
+    </div>
+  );
+}
+function Avatar(){return(<span className="grid h-6 w-6 place-items-center rounded-full bg-white/20 text-[10px]">A</span>)}
+function Timer(){return(<span className="rounded-md border border-white/15 px-2 py-1 text-xs">00:58</span>)}
+function FloatBadge({children, className}){return(<div className={`pointer-events-none absolute rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-100 backdrop-blur ${className||""}`}>{children}</div>)}
+
+function labelFor(k){
+  switch(k){
+    case "journey": return "Day-0 Onboarding";
+    case "planner": return "Study Planner";
+    case "mocks": return "Adaptive Practice";
+    case "evaluator": return "Mains Feedback";
+    case "voice": return "Voice Tutor";
+    case "current": return "Daily Current Affairs";
+    case "debate": return "ClashPoint";
+    default: return "";
+  }
+}
+
+const scenes = [
+  { key: "journey", title: "Journey Builder", blurb: "Pick 'UPSC Foundation in 100 days.' Get a daily, bite-sized plan with auto-revision.", Icon: CalendarIcon },
+  { key: "planner", title: "Study Planner", blurb: "Clear tasks, streaks, and progress % so you always know what's next.", Icon: StreakIcon },
+  { key: "mocks", title: "AI Mock Tests", blurb: "Daily adaptive MCQs + weekly full-length mocks with instant analytics.", Icon: McqIcon },
+  { key: "evaluator", title: "Answer Evaluator (Mains)", blurb: "Upload or write—get structure, relevance, depth, and examples scored.", Icon: DocIcon },
+  { key: "voice", title: "Voice Tutor", blurb: "Ask doubts hands-free; get crisp, cited explanations.", Icon: MicIcon },
+  { key: "current", title: "Current-Affairs Nano-Feed", blurb: "Condensed, exam-ready updates with recall checks.", Icon: CardsIcon },
+  { key: "debate", title: "Debate Mode (ClashPoint)", blurb: "1:1, 1:4, or team debates with rubrics to build argumentation.", Icon: DebateIcon },
+];
+
+function MicroStrip({ type }){
+  const base = "mt-4 flex items-center gap-2";
+  if (type === "journey") {
+    return (
+      <div className={base}>
+        <Chip>Day 01</Chip><Chip>Day 02</Chip>
+        <motion.div initial={{ scale: .8, opacity: .6 }} animate={{ scale: 1, opacity: 1 }} transition={{ repeat: Infinity, repeatType: "mirror", duration: .9 }}><Chip>Revision</Chip></motion.div>
+      </div>
+    );
+  }
+  if (type === "planner") {
+    return (
+      <div className={base}>
+        <Flame /> <Progress value={78} />
+        <Check /> <Check dim />
+      </div>
+    );
+  }
+  if (type === "mocks") {
+    return (
+      <div className={base}>
+        <Bubble>A</Bubble><Bubble>B</Bubble><Bubble glow>C</Bubble><Bubble>D</Bubble>
+        <Bar value={92} label="Accuracy" />
+      </div>
+    );
+  }
+  if (type === "evaluator") {
+    return (
+      <div className={`${base} flex-wrap`}>
+        <Tag>Structure</Tag><Tag>Relevance</Tag><Tag>Depth</Tag><Tag>Examples</Tag>
+      </div>
+    );
+  }
+  if (type === "voice") {
+    return (
+      <div className={base}>
+        <Wave /> <Tag>Sources ✓</Tag>
+      </div>
+    );
+  }
+  if (type === "current") {
+    return (
+      <div className={base}>
+        <Card>GS-II</Card><Card>IR</Card><Card>Eco</Card><Chip>Recall ✓</Chip>
+      </div>
+    );
+  }
+  return (
+    <div className={base}>
+      <Avatar /><Timer /><Tag>Clarity</Tag><Tag>Evidence</Tag><Tag>Rebuttal</Tag>
+    </div>
+  );
+}
 
 const HeroSection = ({ onOpenModal }) => {
+  const [i, setI] = useState(0);
+  const timer = useRef(null);
+  const DURATION = 3500; // ms per scene
+
+  useEffect(() => {
+    start();
+    return stop;
+  }, []);
+
+  const start = () => {
+    stop();
+    timer.current = window.setInterval(() => setI((prev) => (prev + 1) % scenes.length), DURATION);
+  };
+  const stop = () => {
+    if (timer.current) window.clearInterval(timer.current);
+    timer.current = null;
+  };
+
+  const active = scenes[i];
+
   return (
-    <header className="relative h-screen w-full overflow-hidden">
-      {/* Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        aria-hidden="true"
-        className="absolute z-0 w-auto min-w-full min-h-full max-w-none object-cover"
-      >
-        <source
-          src="/AI_Learning_Platform_Animation_Request.mp4"
-          type="video/mp4"
-        />
-        Your browser does not support the video tag. An inspirational video of
-        students studying is playing in the background.
-      </video>
+    <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-black text-white">
+      {/* glow background */}
+      <div className="pointer-events-none absolute -top-32 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full blur-3xl opacity-40" style={{ background: "radial-gradient(60% 60% at 50% 50%, rgba(99,102,241,.35), transparent 70%)" }} />
 
-      {/* Gradient Overlay */}
-      <div
-        className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent"
-        aria-hidden="true"
-      />
-
-      {/* Content Container */}
-      <div className="relative z-10 h-full flex items-end py-12">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="max-w-lg md:max-w-xl text-left">
-            {/* Main Heading */}
-            <h1 className="font-space-grotesk text-4xl md:text-5xl lg:text-6xl font-bold text-ice-white leading-tight">
-              Your UPSC Journey, Guided
-              <span className="bg-gradient-to-r from-electric-aqua to-neon-lilac bg-clip-text text-transparent">
-                {" "}
-                by AI
-              </span>
-            </h1>
-
-            {/* Description */}
-            <p className="mt-4 text-lg md:text-xl text-ice-white/90 font-poppins">
-              Experience the future of learning with intelligent study plans,
-              real-time progress tracking, and adaptive AI support that evolves
-              with you.
-            </p>
-
-            {/* CTA Button */}
-            <div className="mt-8">
-              <button
-                onClick={onOpenModal}
-                className="bg-electric-aqua text-void-black font-poppins font-bold px-5 py-3 rounded-lg hover:scale-105 transition-transform"
-              >
-                Join the AI Revolution
-              </button>
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 py-20 md:grid-cols-2 md:py-28 lg:py-32">
+        {/* Left: copy */}
+        <div className="flex flex-col items-start justify-center">
+          {/* Logo */}
+          <div className="mb-6">
+            <div className="flex flex-col items-start gap-2">
+              {/* Icon: Diagonal arrow with dots */}
+              <div className="relative w-12 h-12">
+                {/* Diagonal arrow */}
+                <svg 
+                  viewBox="0 0 24 24" 
+                  className="w-12 h-12"
+                  fill="none"
+                >
+                  {/* Arrow shaft */}
+                  <path 
+                    d="M4 20L20 4" 
+                    stroke="#06b6d4" 
+                    strokeWidth="3" 
+                    strokeLinecap="round"
+                  />
+                  {/* Arrow head */}
+                  <path 
+                    d="M16 4L20 4L20 8" 
+                    stroke="#06b6d4" 
+                    strokeWidth="3" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                
+                {/* Three dark blue dots */}
+                <div className="absolute w-3 h-3 bg-[#1e40af] rounded-full" style={{ top: '6px', left: '6px' }}></div>
+                <div className="absolute w-3 h-3 bg-[#1e40af] rounded-full" style={{ top: '18px', left: '18px' }}></div>
+                {/* Third dot branching off below and to the right of the second dot */}
+                <div className="absolute w-3 h-3 bg-[#1e40af] rounded-full" style={{ top: '24px', left: '15px' }}></div>
+              </div>
+              
+              {/* Text: xploar.ai */}
+              <span className="font-space-grotesk text-2xl font-bold text-[#1e40af] leading-none">xploar.ai</span>
             </div>
           </div>
+
+          <h1 className="text-balance text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
+            Finish <span className="bg-gradient-to-r from-indigo-300 to-sky-300 bg-clip-text text-transparent">UPSC Foundation</span> in 100 Days
+            </h1>
+          <p className="mt-4 max-w-xl text-lg text-slate-300 md:text-xl">
+            Plan. Practice. Get feedback. Repeat — with an AI co-pilot.
+          </p>
+
+          <div className="mt-8 flex items-center gap-3">
+              <button
+                onClick={onOpenModal}
+              className="rounded-xl bg-white px-5 py-3 text-slate-900 shadow-lg transition hover:scale-[1.02] active:scale-[.98]"
+              >
+              Start free
+              </button>
+            <a href="#demo" className="rounded-xl border border-white/20 px-5 py-3 text-white/90 backdrop-blur hover:bg-white/5">
+              Watch 60-sec demo
+            </a>
+          </div>
+
+          {/* quick trust strip */}
+          <div className="mt-8 flex items-center gap-4 text-sm text-slate-400">
+            <span className="inline-flex items-center gap-2"><SparkIcon className="h-4 w-4" /> Adaptive learning</span>
+            <span className="inline-flex items-center gap-2"><ShieldIcon className="h-4 w-4" /> Private & secure</span>
+            <span className="inline-flex items-center gap-2"><ClockIcon className="h-4 w-4" /> 10-min/day rhythm</span>
+          </div>
+        </div>
+
+        {/* Right: animated scene */}
+        <div className="relative h-[520px] w-full select-none" onMouseEnter={stop} onMouseLeave={start}>
+          {/* device frame */}
+          <div className="absolute inset-0 grid place-items-center">
+            <div className="relative w-full max-w-[520px] rounded-3xl border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur">
+              <div className="rounded-2xl border border-white/10 bg-black/50 p-5">
+                <AnimatePresence mode="wait">
+                  <motion.div key={active.key} initial={{ opacity: 0, y: 16, rotateX: -10 }} animate={{ opacity: 1, y: 0, rotateX: 0 }} exit={{ opacity: 0, y: -16, rotateX: 10 }} transition={{ duration: 0.5, ease: "easeOut" }} className="grid grid-cols-[72px_1fr] items-start gap-4">
+                    {/* Icon / Lottie slot */}
+                    <motion.div initial={{ scale: .9 }} animate={{ scale: 1 }} transition={{ duration: .5 }} className="grid h-[72px] w-[72px] place-items-center rounded-2xl border border-white/10 bg-white/5">
+                      {/* Swap with Lottie if desired */}
+                      <active.Icon className="h-10 w-10" />
+                    </motion.div>
+
+                    <div>
+                      <div className="text-sm uppercase tracking-wide text-indigo-200/80">{labelFor(active.key)}</div>
+                      <h3 className="mt-1 text-xl font-semibold">{active.title}</h3>
+                      <p className="mt-2 text-slate-300">{active.blurb}</p>
+                      {/* Mini scene-specific strip */}
+                      <MicroStrip type={active.key} />
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* scene dots */}
+              <div className="mt-4 flex justify-center gap-2">
+                {scenes.map((s, idx) => (
+                  <button key={s.key} onClick={() => setI(idx)} aria-label={`Show ${s.title}`} className={`h-1.5 w-6 rounded-full transition ${idx === i ? "bg-white" : "bg-white/25 hover:bg-white/40"}`} />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* floating badges */}
+          <FloatBadge className="left-2 top-6">Auto-revision</FloatBadge>
+          <FloatBadge className="right-4 top-24">Instant analytics</FloatBadge>
+          <FloatBadge className="bottom-10 left-6">Cited answers</FloatBadge>
         </div>
       </div>
-    </header>
+    </section>
   );
 };
 

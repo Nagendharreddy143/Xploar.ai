@@ -38,9 +38,39 @@ const Navbar = ({ onOpenModal = () => {} }) => {
           {/* Logo */}
           <Link
             to="/"
-            className="font-space-grotesk text-2xl font-bold text-cosmic-indigo transition-transform hover:scale-105"
+            className="transition-transform hover:scale-105"
           >
-            Xploar.ai
+            {/* Icon: Diagonal arrow with dots */}
+            <div className="relative w-8 h-8">
+              {/* Diagonal arrow */}
+              <svg 
+                viewBox="0 0 24 24" 
+                className="w-8 h-8"
+                fill="none"
+              >
+                {/* Arrow shaft */}
+                <path 
+                  d="M4 20L20 4" 
+                  stroke="#06b6d4" 
+                  strokeWidth="3" 
+                  strokeLinecap="round"
+                />
+                {/* Arrow head */}
+                <path 
+                  d="M16 4L20 4L20 8" 
+                  stroke="#06b6d4" 
+                  strokeWidth="3" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+              </svg>
+              
+              {/* Three dark blue dots - positioned exactly as in the reference image */}
+              <div className="absolute w-2 h-2 bg-[#1e40af] rounded-full" style={{ top: '4px', left: '4px' }}></div>
+              <div className="absolute w-2 h-2 bg-[#1e40af] rounded-full" style={{ top: '12px', left: '12px' }}></div>
+              {/* Third dot branching off below and to the right of the second dot */}
+              <div className="absolute w-2 h-2 bg-[#1e40af] rounded-full" style={{ top: '16px', left: '10px' }}></div>
+            </div>
           </Link>
 
           {/* Desktop Menu */}
