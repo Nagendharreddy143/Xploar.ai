@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import XploarLogo from "../brand/XploarLogo";
 
 function CalendarIcon(props){return(<svg viewBox="0 0 24 24" {...props}><rect x="3" y="4" width="18" height="17" rx="3" fill="none" stroke="currentColor"/><path d="M8 2v4M16 2v4M3 9h18" stroke="currentColor"/><circle cx="9" cy="13" r="1" fill="currentColor"/><circle cx="13" cy="13" r="1" fill="currentColor"/><circle cx="17" cy="13" r="1" fill="currentColor"/></svg>)}
 function StreakIcon(props){return(<svg viewBox="0 0 24 24" {...props}><path d="M12 2s2 3 2 6-2 4-2 6 2 3 2 6c0 0-2-1-4-3s-3-5 0-8 2-7 2-7z" fill="none" stroke="currentColor"/></svg>)}
@@ -155,42 +156,7 @@ const HeroSection = ({ onOpenModal }) => {
         <div className="flex flex-col items-start justify-center">
           {/* Logo */}
           <div className="mb-6">
-            <div className="flex flex-col items-start gap-2">
-              {/* Icon: Diagonal arrow with dots */}
-              <div className="relative w-12 h-12">
-                {/* Diagonal arrow */}
-                <svg 
-                  viewBox="0 0 24 24" 
-                  className="w-12 h-12"
-                  fill="none"
-                >
-                  {/* Arrow shaft */}
-                  <path 
-                    d="M4 20L20 4" 
-                    stroke="#06b6d4" 
-                    strokeWidth="3" 
-                    strokeLinecap="round"
-                  />
-                  {/* Arrow head */}
-                  <path 
-                    d="M16 4L20 4L20 8" 
-                    stroke="#06b6d4" 
-                    strokeWidth="3" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                
-                {/* Three dark blue dots */}
-                <div className="absolute w-3 h-3 bg-[#1e40af] rounded-full" style={{ top: '6px', left: '6px' }}></div>
-                <div className="absolute w-3 h-3 bg-[#1e40af] rounded-full" style={{ top: '18px', left: '18px' }}></div>
-                {/* Third dot branching off below and to the right of the second dot */}
-                <div className="absolute w-3 h-3 bg-[#1e40af] rounded-full" style={{ top: '24px', left: '15px' }}></div>
-              </div>
-              
-              {/* Text: xploar.ai */}
-              <span className="font-space-grotesk text-2xl font-bold text-[#1e40af] leading-none">xploar.ai</span>
-            </div>
+            <XploarLogo size={64} showText />
           </div>
 
           <h1 className="text-balance text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
