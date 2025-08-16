@@ -1,16 +1,22 @@
 import { useState, useEffect } from "react";
+import { supabase } from "../../lib/supabase";
+import { handleSupabaseError, validateEmail, sanitizeInput } from "../../lib/supabase-utils";
 
 const WaitlistModal = ({ isOpen, onClose }) => {
-  const [email, setEmail] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+  });
   const [message, setMessage] = useState("");
   const [isSuccess, setSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
       // Reset state on open
       setSuccess(false);
-      setEmail("");
+      setFormData({ name: "", email: "" });
       setMessage("");
       setShowContent(true);
     } else {
@@ -25,14 +31,53 @@ const WaitlistModal = ({ isOpen, onClose }) => {
     setTimeout(onClose, 300);
   };
 
-  const handleSubmit = () => {
-    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async () => {
+    // Validation
+    if (!formData.name.trim()) {
+      setMessage("Please enter your name.");
+      return;
+    }
+
+    if (!formData.email || !validateEmail(formData.email)) {
       setMessage("Please enter a valid email.");
       return;
     }
+
+    setIsLoading(true);
     setMessage("");
-    console.log("Submitted email:", email);
-    setSuccess(true);
+
+    try {
+      const { data, error } = await supabase
+        .from('waitlist')
+        .insert([
+          {
+            name: sanitizeInput(formData.name),
+            email: sanitizeInput(formData.email),
+            created_at: new Date().toISOString()
+          }
+        ]);
+
+      if (error) {
+        setMessage(handleSupabaseError(error));
+        return;
+      }
+
+      setSuccess(true);
+      console.log("Waitlist entry added:", data);
+    } catch (error) {
+      console.error('Error adding to waitlist:', error);
+      setMessage("Something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -67,33 +112,56 @@ const WaitlistModal = ({ isOpen, onClose }) => {
               Join the waitlist
             </h4>
             <p className="mt-2 text-card-text">
-              Enter your email and we'll notify you when early access opens.
+              Enter your details and we'll notify you when early access opens.
             </p>
-            <input
-              id="emailInput"
-              type="email"
-              placeholder="you@domain.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="mt-4 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-neon-lilac focus:outline-none"
-            />
+
+            <div className="mt-4 space-y-3">
+              <input
+                id="nameInput"
+                name="name"
+                type="text"
+                placeholder="Your full name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-neon-lilac focus:outline-none"
+                disabled={isLoading}
+              />
+
+              <input
+                id="emailInput"
+                name="email"
+                type="email"
+                placeholder="you@domain.com"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-neon-lilac focus:outline-none"
+                disabled={isLoading}
+              />
+            </div>
+
             <div id="modal-message" className="mt-2 text-sm text-red-600 h-5">
               {message}
             </div>
+
             <div className="mt-4 flex gap-4 justify-end">
               <button
                 onClick={handleClose}
                 type="button"
                 className="bg-gray-200 text-gray-700 font-bold px-5 py-2 rounded-lg hover:bg-gray-300 transition"
+                disabled={isLoading}
               >
                 Cancel
               </button>
               <button
                 onClick={handleSubmit}
                 type="button"
-                className="bg-electric-aqua text-void-black font-bold px-5 py-2 rounded-lg hover:scale-105 transition-transform"
+                className={`bg-electric-aqua text-void-black font-bold px-5 py-2 rounded-lg transition ${isLoading
+                  ? 'opacity-50 cursor-not-allowed'
+                  : 'hover:scale-105 transition-transform'
+                  }`}
+                disabled={isLoading}
               >
-                Notify Me
+                {isLoading ? 'Adding...' : 'Notify Me'}
               </button>
             </div>
           </div>
@@ -103,7 +171,7 @@ const WaitlistModal = ({ isOpen, onClose }) => {
               You're on the list!
             </h4>
             <p className="mt-2 text-card-text">
-              Thank you for joining. We'll send you an email as soon as we're
+              Thank you for joining, {formData.name}! We'll send you an email as soon as we're
               ready.
             </p>
             <button
