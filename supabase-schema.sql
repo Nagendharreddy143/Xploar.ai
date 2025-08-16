@@ -84,3 +84,4 @@ SELECT
     MIN(created_at) as first_submission,
     MAX(created_at) as latest_submission
 FROM contact_submissions;
+    

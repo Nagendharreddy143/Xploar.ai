@@ -156,27 +156,11 @@ export const AcademicCapIcon = (props) => (
   </Icon>
 );
 
-export const ChartBarIcon = (props) => (
-  <Icon {...props}>
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"
-    />
-  </Icon>
-);
 export const TargetIcon = (props) => (
   <Icon {...props}>
     <circle cx="12" cy="12" r="10" />
     <circle cx="12" cy="12" r="6" />
     <circle cx="12" cy="12" r="2" />
-  </Icon>
-);
-
-export const ClipboardDocumentListIcon = (props) => (
-  <Icon {...props}>
-    <path d="M9 2h6a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z" />
-    <path d="M4 6h2m-2 4h2m-2 4h2m6-8h4m-4 4h4m-4 4h4" />
   </Icon>
 );
 
@@ -208,11 +192,10 @@ export const ChartPieIcon = (props) => (
 
 export const RocketLaunchIcon = (props) => (
   <Icon {...props}>
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.63 2.25c-2.59 1.9-3.72 5.03-3.49 8.06l-6.08 6.08a6 6 0 006.73 9.34l6.08-6.08z"
-    />
+    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+    <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6.95 10a22 22 0 0 1-3.95 2z" />
+    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
   </Icon>
 );
 
@@ -247,70 +230,54 @@ export const ShieldCheckIcon = (props) => (
 
 export const UsersIcon = (props) => (
   <Icon {...props}>
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.53-2.475c0-1.11.31-2.14.852-3.071L12 11.459M12 11.459L6.152 5.61a4.126 4.126 0 00-6.012 1.48L.152 8.783A4.125 4.125 0 002.5 12.872l3.652.73M12 11.459L6.152 5.61m6.012 5.849L18.148 5.61M12 11.459L6.152 17.308m6.012-5.849L18.148 17.308"
-    />
-  </Icon>
-);
-
-export const ArrowPathIcon = (props) => (
-  <Icon {...props}>
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M16.023 9.348h4.992v-.001a10.5 10.5 0 01-1.523 7.218 10.5 10.5 0 01-7.218 1.523c-2.361 0-4.6-.713-6.412-2.133-1.813-1.42-3.153-3.322-3.888-5.503M3.007 12.073c.636-2.181 2.076-4.083 3.888-5.503 1.812-1.42 4.051-2.133 6.412-2.133a10.5 10.5 0 017.218 1.523 10.5 10.5 0 011.523 7.218v-.001h-4.992"
-    />
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M15.75 21v-6.75l-4.5 4.5 4.5 4.5v-6.75z"
-    />
+    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+    <circle cx="9" cy="7" r="4" />
+    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
   </Icon>
 );
 
 // --- Core Values Icons (About Page) ---
 export const PlanetIcon = (props) => (
   <Icon {...props}>
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664l.969 1.939a.75.75 0 11-1.06 1.06l-1.94-1.94a1.107 1.107 0 00-1.664-.57l-.048-.143a2.25 2.25 0 01-.886-1.161l-.766-.51a1.125 1.125 0 01-.216-1.49l.89-1.068a1.125 1.125 0 00-.864-.405v-.568a12.006 12.006 0 0110.5 0zm-10.5 0v.568c0 .334-.148.65-.405.864l-1.068.89c-.442.369-.535 1.01-.216 1.49l.51.766a2.25 2.25 0 001.161.886l.143.048a1.107 1.107 0 01.57 1.664l-.969 1.939a.75.75 0 101.06 1.06l1.94-1.94a1.107 1.107 0 011.664.57l.048.143a2.25 2.25 0 00.886 1.161l.766.51c.48.319 1.121.226 1.49-.216l.89-1.068c.257-.214.405-.53.405-.864v-.568a12.006 12.006 0 00-10.5 0z"
-    />
+    <circle cx="12" cy="12" r="8" />
+    <ellipse cx="12" cy="12" rx="11" ry="3" />
   </Icon>
 );
 
+// Heart Icon - Classic heart shape
 export const HeartIcon = (props) => (
   <Icon {...props}>
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-    />
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
   </Icon>
 );
 
+// Globe Icon - World with latitude/longitude lines
 export const GlobeIcon = (props) => (
   <Icon {...props}>
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A11.953 11.953 0 0112 13.5c-2.998 0-5.74-1.1-7.843-2.918"
-    />
+    <circle cx="12" cy="12" r="10" />
+    <path d="M2 12h20" />
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
   </Icon>
 );
 
+// Ribbon Icon - Award ribbon
 export const RibbonIcon = (props) => (
   <Icon {...props}>
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M9.75 3.104v5.714a2.25 2.25 0 01-.5 1.591L5.25 12.25v6.536A2.25 2.25 0 007.5 21h9a2.25 2.25 0 002.25-2.25V12.25l-3.999-1.791a2.25 2.25 0 01-.5-1.591V3.104m-7.5 0a2.25 2.25 0 013.75 0M9.75 3.104a2.25 2.25 0 00-3.75 0m7.5 0a2.25 2.25 0 013.75 0M1.5 9.75h21"
-    />
+    <circle cx="12" cy="8" r="6" />
+    <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
   </Icon>
 );
 
+// Arrow Path Icon - Refresh/reload arrow
+export const ArrowPathIcon = (props) => (
+  <Icon {...props}>
+    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+    <path d="M21 3v5h-5" />
+    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+    <path d="M8 16H3v5" />
+  </Icon>
+);
 // --- Contact Page & Footer Icons ---
 export const MailIcon = (props) => (
   <Icon {...props}>
@@ -334,15 +301,7 @@ export const PhoneIcon = (props) => (
   </Icon>
 );
 
-export const GithubIcon = (props) => (
-  <Icon {...props}>
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-    />
-  </Icon>
-);
+
 
 export const LocationIcon = (props) => (
   <Icon {...props}>
@@ -359,12 +318,14 @@ export const LocationIcon = (props) => (
   </Icon>
 );
 
+// Twitter/X Icon
 export const TwitterIcon = (props) => (
   <Icon {...props}>
-    <path d="M22 4s-.7 2.1-2 3.4c1.6 1.4 3.3 4.9 3 7.1 0 .8-.4 1.5-.9 2.2-1.1 1.4-2.6 2.3-4.2 2.7h-1.3c-1.2 0-2.3-.5-3.2-1.2.9-.1 1.8-.4 2.6-.9 1.5-.9 2.6-2.2 3.1-3.8.4-1.2.4-2.5 0-3.7-.4-1.3-1.1-2.4-2-3.3-1.3-1.3-3-2.1-4.7-2.2h-1.3c-1.2 0-2.3.5-3.2 1.2.9-.1 1.8-.4 2.6-.9 1.5-.9 2.6-2.2 3.1-3.8.4-1.2.4-2.5 0-3.7C15.4 3.1 14.7 2 13.8 1.1c-1.3-1.3-3-2.1-4.7-2.2H7.8c-1.2 0-2.3.5-3.2 1.2.9-.1 1.8-.4 2.6-.9 1.5-.9 2.6-2.2 3.1-3.8.4-1.2.4-2.5 0-3.7C9.4 3.1 8.7 2 7.8 1.1 6.5-.2 4.8-1 3.1-1.1H1.8c-1.2 0-2.3.5-3.2 1.2C-.3 1.2-1 2.3-1.4 3.5c-.4 1.2-.4 2.5 0 3.7.4 1.3 1.1 2.4 2 3.3 1.3 1.3 3 2.1 4.7 2.2h1.3c1.2 0 2.3-.5 3.2-1.2-.9.1-1.8.4-2.6.9-1.5.9-2.6 2.2-3.1 3.8-.4 1.2-.4 2.5 0 3.7.4 1.3 1.1 2.4 2 3.3 1.3 1.3 3 2.1 4.7 2.2h1.3c1.2 0 2.3-.5 3.2-1.2.9.1 1.8.4 2.6.9 1.5.9 2.6 2.2 3.1 3.8.4 1.2.4-2.5 0-3.7-.4-1.3-1.1-2.4-2-3.3-1.3-1.3-3-2.1-4.7-2.2h-1.3c-1.2 0-2.3.5-3.2-1.2.9.1 1.8.4 2.6.9 1.5.9 2.6 2.2 3.1 3.8.4 1.2.4-2.5 0-3.7C15.4 20.9 14.7 22 13.8 22.9c-1.3 1.3-3 2.1-4.7 2.2H7.8c-1.2 0-2.3-.5-3.2-1.2C3.7 22.8 3 21.7 2.6 20.5c-.4-1.2-.4-2.5 0-3.7.4-1.3 1.1-2.4 2-3.3 1.3-1.3 3-2.1 4.7-2.2h1.3c1.2 0 2.3.5 3.2-1.2L22 4z" />
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
   </Icon>
 );
 
+// Instagram Icon
 export const InstagramIcon = (props) => (
   <Icon {...props}>
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -373,6 +334,7 @@ export const InstagramIcon = (props) => (
   </Icon>
 );
 
+// LinkedIn Icon
 export const LinkedInIcon = (props) => (
   <Icon {...props}>
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -381,17 +343,30 @@ export const LinkedInIcon = (props) => (
   </Icon>
 );
 
-export const JourneyArrowIcon = (props) => (
+// Alternative simplified versions if you prefer cleaner paths:
+
+// Simple Twitter/X Icon (X logo)
+export const XIcon = (props) => (
   <Icon {...props}>
-    <path
-      d="M50 50 Q150 30 250 50 Q350 70 450 50"
-      fill="none"
-      stroke="currentColor"
-    />
-    <path d="M470 50 l20 -10 l-10 20 l20 -10 z" fill="currentColor" />
+    <path d="M18 6 6 18" />
+    <path d="M6 6l12 12" />
   </Icon>
 );
 
+// YouTube Icon (bonus)
+export const YouTubeIcon = (props) => (
+  <Icon {...props}>
+    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+    <polygon points="9.75,15.02 15.5,11.75 9.75,8.48" />
+  </Icon>
+);
+
+// Facebook Icon (bonus)
+export const FacebookIcon = (props) => (
+  <Icon {...props}>
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </Icon>
+);
 // Add these to your icons.jsx file
 
 export const TrendingUpIcon = (props) => (
@@ -406,11 +381,7 @@ export const TrendingUpIcon = (props) => (
 
 export const ZapIcon = (props) => (
   <Icon {...props}>
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M3.75 13.5 10.5 6.75 13.5 9.75 20.25 3.75m0 0L17.5 2m2.75 1.75L18.5 6.5"
-    />
+    <polygon points="13,2 3,14 12,14 11,22 21,10 12,10" />
   </Icon>
 );
 
@@ -424,15 +395,6 @@ export const CheckCircleIcon = (props) => (
   </Icon>
 );
 
-export const StarIcon = (props) => (
-  <Icon {...props}>
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.563.563 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
-    />
-  </Icon>
-);
 // Add these to your Icons.jsx file
 
 export const PlusIcon = (props) => (
