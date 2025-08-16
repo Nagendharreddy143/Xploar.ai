@@ -9,13 +9,13 @@ import AllInOneSection from "../components/home/AllInOneSection";
 import OutcomesSection from "../components/home/OutcomesSection";
 import FaqSection from "../components/home/FaqSection";
 
-const HomePage = ({ onOpenModal }) => {
+const HomePage = () => {
   useAos();
 
   return (
     <>
       <DotBackground />
-      <HeroSection onOpenModal={onOpenModal} />
+      <HeroSection />
       <div id="main-content" className="relative bg-ice-white z-10">
         <ChallengeSection />
         <AllInOneSection />
@@ -23,7 +23,7 @@ const HomePage = ({ onOpenModal }) => {
         <HowItWorksSection />
         <OutcomesSection />
         <FaqSection />
-        <CtaSection onOpenModal={onOpenModal} />
+        <CtaSection />
       </div>
     </>
   );

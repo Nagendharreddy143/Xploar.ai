@@ -545,3 +545,66 @@ export const DownloadIcon = (props) => (
     />
   </Icon>
 );
+
+// --- Hero Section Icons ---
+export const StreakIcon = (props) => (
+  <Icon {...props}>
+    <path d="M12 2s2 3 2 6-2 4-2 6 2 3 2 6c0 0-2-1-4-3s-3-5 0-8 2-7 2-7z" fill="none" stroke="currentColor" />
+  </Icon>
+);
+
+export const McqIcon = (props) => (
+  <Icon {...props}>
+    <rect x="3" y="4" width="18" height="16" rx="3" fill="none" stroke="currentColor" />
+    <path d="M7 9h6M7 13h10" stroke="currentColor" />
+    <circle cx="6" cy="9" r="1" fill="currentColor" />
+    <circle cx="6" cy="13" r="1" fill="currentColor" />
+  </Icon>
+);
+
+export const DocIcon = (props) => (
+  <Icon {...props}>
+    <path d="M7 3h7l4 4v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor" />
+    <path d="M14 3v5h5" stroke="currentColor" />
+    <path d="M8 11h8M8 15h6" stroke="currentColor" />
+  </Icon>
+);
+
+export const MicIcon = (props) => (
+  <Icon {...props}>
+    <rect x="9" y="3" width="6" height="10" rx="3" fill="none" stroke="currentColor" />
+    <path d="M5 11a7 7 0 0 0 14 0M12 18v3" stroke="currentColor" />
+  </Icon>
+);
+
+export const CardsIcon = (props) => (
+  <Icon {...props}>
+    <rect x="4" y="6" width="10" height="12" rx="2" fill="none" stroke="currentColor" />
+    <rect x="10" y="4" width="10" height="12" rx="2" fill="none" stroke="currentColor" />
+  </Icon>
+);
+
+export const DebateIcon = (props) => (
+  <Icon {...props}>
+    <path d="M4 18v-6h7v6l-3.5-2zM13 16v-8h7v8l-3.5-2z" fill="none" stroke="currentColor" />
+  </Icon>
+);
+
+export const SparkIcon = (props) => (
+  <Icon {...props}>
+    <path d="M12 2v5M12 17v5M2 12h5M17 12h5M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3" stroke="currentColor" />
+  </Icon>
+);
+
+export const ShieldIcon = (props) => (
+  <Icon {...props}>
+    <path d="M12 3l8 3v6c0 5-3.6 8-8 9-4.4-1-8-4-8-9V6z" fill="none" stroke="currentColor" />
+  </Icon>
+);
+
+export const ClockIcon = (props) => (
+  <Icon {...props}>
+    <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" />
+    <path d="M12 7v6l4 2" stroke="currentColor" />
+  </Icon>
+);

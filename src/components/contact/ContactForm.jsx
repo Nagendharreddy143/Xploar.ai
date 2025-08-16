@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import useAos from "../../hooks/useAos";
+import { supabase } from "../../lib/supabase";
+import { handleSupabaseError, validateEmail, sanitizeInput } from "../../lib/supabase-utils";
 
 // Importing the necessary icons from your central file
 import {
@@ -117,18 +119,57 @@ const ContactForm = () => {
     message: "",
   });
   const [statusMessage, setStatusMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
-    setStatusMessage("Thank you! Your message has been sent.");
-    setFormData({ name: "", email: "", message: "" });
-    setTimeout(() => setStatusMessage(""), 3000);
+
+    // Validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setStatusMessage("Please fill in all fields.");
+      return;
+    }
+
+    if (!validateEmail(formData.email)) {
+      setStatusMessage("Please enter a valid email address.");
+      return;
+    }
+
+    setIsLoading(true);
+    setStatusMessage("Sending message...");
+
+    try {
+      const { data, error } = await supabase
+        .from('contact_submissions')
+        .insert([
+          {
+            name: sanitizeInput(formData.name),
+            email: sanitizeInput(formData.email),
+            message: sanitizeInput(formData.message),
+            created_at: new Date().toISOString()
+          }
+        ]);
+
+      if (error) {
+        setStatusMessage(handleSupabaseError(error));
+        return;
+      }
+
+      setStatusMessage("Thank you! Your message has been sent successfully.");
+      setFormData({ name: "", email: "", message: "" });
+      console.log("Contact form submitted:", data);
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      setStatusMessage("Something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false);
+      setTimeout(() => setStatusMessage(""), 5000);
+    }
   };
 
   return (
@@ -149,6 +190,7 @@ const ContactForm = () => {
             value={formData.name}
             onChange={handleChange}
             required
+            disabled={isLoading}
           />
         </div>
         <div>
@@ -163,6 +205,7 @@ const ContactForm = () => {
             value={formData.email}
             onChange={handleChange}
             required
+            disabled={isLoading}
           />
         </div>
         <div>
@@ -177,15 +220,22 @@ const ContactForm = () => {
             value={formData.message}
             onChange={handleChange}
             required
+            disabled={isLoading}
           ></textarea>
         </div>
         <div className="flex items-center justify-between">
-          <p className="text-sm text-green-600">{statusMessage}</p>
+          <p className={`text-sm ${statusMessage.includes('Thank you') ? 'text-green-600' : statusMessage.includes('wrong') ? 'text-red-600' : 'text-gray-600'}`}>
+            {statusMessage}
+          </p>
           <button
             type="submit"
-            className="px-6 py-3 bg-electric-aqua rounded-lg font-poppins font-bold text-void-black transition hover:scale-105"
+            className={`px-6 py-3 bg-electric-aqua rounded-lg font-poppins font-bold text-void-black transition ${isLoading
+              ? 'opacity-50 cursor-not-allowed'
+              : 'hover:scale-105'
+              }`}
+            disabled={isLoading}
           >
-            Send Message
+            {isLoading ? 'Sending...' : 'Send Message'}
           </button>
         </div>
       </form>
