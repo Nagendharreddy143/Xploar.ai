@@ -61,17 +61,6 @@ const CtaSection = () => {
 
           {/* Content */}
           <div className="relative z-10">
-            {/* Badge */}
-            <div
-              className="inline-flex items-center gap-2 bg-electric-aqua/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6 transform transition-all duration-500 hover:scale-105"
-              data-aos="fade-down"
-              data-aos-delay="100"
-            >
-              <div className="w-2 h-2 bg-electric-aqua rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium text-electric-aqua">
-                Join 10,000+ Success Stories
-              </span>
-            </div>
 
             <h2
               className="font-space-grotesk text-3xl lg:text-5xl font-bold text-white mb-6 leading-tight transform transition-all duration-700 group-hover:scale-105"

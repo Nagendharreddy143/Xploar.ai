@@ -8,12 +8,14 @@ import DotBackground from "../components/home/DotBackground";
 import AllInOneSection from "../components/home/AllInOneSection";
 import OutcomesSection from "../components/home/OutcomesSection";
 import FaqSection from "../components/home/FaqSection";
+import HomePageSEO from "../components/seo/HomePageSEO";
 
 const HomePage = () => {
   useAos();
 
   return (
     <>
+      <HomePageSEO />
       <DotBackground />
       <HeroSection />
       <div id="main-content" className="relative bg-ice-white z-10">
