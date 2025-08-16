@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import useAos from "../../hooks/useAos";
+import { useModal } from "../../context/ModalContext";
 import { ArrowRightIcon, SparklesIcon, CheckIcon } from "../common/Icons";
 
-const CtaSection = ({ onOpenModal }) => {
+const CtaSection = () => {
+  const { openModal } = useModal();
   useAos();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -112,7 +114,7 @@ const CtaSection = ({ onOpenModal }) => {
               data-aos-delay="400"
             >
               <button
-                onClick={onOpenModal}
+                onClick={openModal}
                 className="relative px-10 py-5 bg-electric-aqua hover:bg-electric-aqua/90 rounded-2xl font-poppins font-bold text-void-black text-xl transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-electric-aqua/50"
               >
                 <span className="flex items-center justify-center gap-3">

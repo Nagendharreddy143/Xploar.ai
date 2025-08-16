@@ -58,9 +58,8 @@ const WaitlistModal = ({ isOpen, onClose }) => {
       <div
         id="modal-content"
         onClick={(e) => e.stopPropagation()}
-        className={`bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md transform transition-all duration-300 ${
-          showContent ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
-        }`}
+        className={`bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md transform transition-all duration-300 ${showContent ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
+          }`}
       >
         {!isSuccess ? (
           <div id="modal-initial-state">

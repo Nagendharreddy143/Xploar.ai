@@ -1,55 +1,62 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import XploarLogo from "../brand/XploarLogo";
+import { useModal } from "../../context/ModalContext";
+import {
+  CalendarIcon,
+  StreakIcon,
+  McqIcon,
+  DocIcon,
+  MicIcon,
+  CardsIcon,
+  DebateIcon,
+  SparkIcon,
+  ShieldIcon,
+  ClockIcon
+} from "../common/Icons";
 
-function CalendarIcon(props){return(<svg viewBox="0 0 24 24" {...props}><rect x="3" y="4" width="18" height="17" rx="3" fill="none" stroke="currentColor"/><path d="M8 2v4M16 2v4M3 9h18" stroke="currentColor"/><circle cx="9" cy="13" r="1" fill="currentColor"/><circle cx="13" cy="13" r="1" fill="currentColor"/><circle cx="17" cy="13" r="1" fill="currentColor"/></svg>)}
-function StreakIcon(props){return(<svg viewBox="0 0 24 24" {...props}><path d="M12 2s2 3 2 6-2 4-2 6 2 3 2 6c0 0-2-1-4-3s-3-5 0-8 2-7 2-7z" fill="none" stroke="currentColor"/></svg>)}
-function McqIcon(props){return(<svg viewBox="0 0 24 24" {...props}><rect x="3" y="4" width="18" height="16" rx="3" fill="none" stroke="currentColor"/><path d="M7 9h6M7 13h10" stroke="currentColor"/><circle cx="6" cy="9" r="1" fill="currentColor"/><circle cx="6" cy="13" r="1" fill="currentColor"/></svg>)}
-function DocIcon(props){return(<svg viewBox="0 0 24 24" {...props}><path d="M7 3h7l4 4v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" fill="none" stroke="currentColor"/><path d="M14 3v5h5" stroke="currentColor"/><path d="M8 11h8M8 15h6" stroke="currentColor"/></svg>)}
-function MicIcon(props){return(<svg viewBox="0 0 24 24" {...props}><rect x="9" y="3" width="6" height="10" rx="3" fill="none" stroke="currentColor"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3" stroke="currentColor"/></svg>)}
-function CardsIcon(props){return(<svg viewBox="0 0 24 24" {...props}><rect x="4" y="6" width="10" height="12" rx="2" fill="none" stroke="currentColor"/><rect x="10" y="4" width="10" height="12" rx="2" fill="none" stroke="currentColor"/></svg>)}
-function DebateIcon(props){return(<svg viewBox="0 0 24 24" {...props}><path d="M4 18v-6h7v6l-3.5-2zM13 16v-8h7v8l-3.5-2z" fill="none" stroke="currentColor"/></svg>)}
-function SparkIcon(props){return(<svg viewBox="0 0 24 24" {...props}><path d="M12 2v5M12 17v5M2 12h5M17 12h5M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3" stroke="currentColor"/></svg>)}
-function ShieldIcon(props){return(<svg viewBox="0 0 24 24" {...props}><path d="M12 3l8 3v6c0 5-3.6 8-8 9-4.4-1-8-4-8-9V6z" fill="none" stroke="currentColor"/></svg>)}
-function ClockIcon(props){return(<svg viewBox="0 0 24 24" {...props}><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor"/><path d="M12 7v6l4 2" stroke="currentColor"/></svg>)}
 
-function Chip({children}){return(<span className="rounded-full border border-white/15 px-2.5 py-1 text-xs text-slate-200">{children}</span>)}
-function Tag({children}){return(<span className="rounded-md bg-white/5 px-2 py-1 text-xs text-slate-200 border border-white/10">{children}</span>)}
-function Bubble({children, glow}){return(<span className={`grid place-items-center h-7 w-7 rounded-full border border-white/15 ${glow?"shadow-[0_0_20px_rgba(99,102,241,.6)]":""}`}>{children}</span>)}
-function Card({children}){return(<span className="rounded-lg border border-white/15 bg-white/5 px-2.5 py-1 text-xs">{children}</span>)}
-function Check({dim}){return(<span className={`text-base ${dim?"opacity-50":""}`} aria-hidden>✓</span>)}
-function Flame(){return(<span className="animate-pulse">🔥</span>)}
-function Progress({value}){return(
-  <div className="flex items-center gap-2">
-    <div className="h-2 w-28 overflow-hidden rounded bg-white/10">
-      <div className="h-full bg-white/80" style={{ width: `${value}%` }} />
+
+function Chip({ children }) { return (<span className="rounded-full border border-white/15 px-2.5 py-1 text-xs text-slate-200">{children}</span>) }
+function Tag({ children }) { return (<span className="rounded-md bg-white/5 px-2 py-1 text-xs text-slate-200 border border-white/10">{children}</span>) }
+function Bubble({ children, glow }) { return (<span className={`grid place-items-center h-7 w-7 rounded-full border border-white/15 ${glow ? "shadow-[0_0_20px_rgba(99,102,241,.6)]" : ""}`}>{children}</span>) }
+function Card({ children }) { return (<span className="rounded-lg border border-white/15 bg-white/5 px-2.5 py-1 text-xs">{children}</span>) }
+function Check({ dim }) { return (<span className={`text-base ${dim ? "opacity-50" : ""}`} aria-hidden>✓</span>) }
+function Flame() { return (<span className="animate-pulse">🔥</span>) }
+function Progress({ value }) {
+  return (
+    <div className="flex items-center gap-2">
+      <div className="h-2 w-28 overflow-hidden rounded bg-white/10">
+        <div className="h-full bg-white/80" style={{ width: `${value}%` }} />
+      </div>
+      <span className="text-xs text-slate-300">{value}%</span>
     </div>
-    <span className="text-xs text-slate-300">{value}%</span>
-  </div>
-)}
-function Bar({value,label}){return(
-  <div className="flex items-center gap-2">
-    <span className="text-xs text-slate-300">{label}</span>
-    <div className="h-2 w-24 overflow-hidden rounded bg-white/10">
-      <motion.div initial={{ width: 0 }} animate={{ width: `${value}%` }} transition={{ duration: .9 }} className="h-full bg-white/80"/>
+  )
+}
+function Bar({ value, label }) {
+  return (
+    <div className="flex items-center gap-2">
+      <span className="text-xs text-slate-300">{label}</span>
+      <div className="h-2 w-24 overflow-hidden rounded bg-white/10">
+        <motion.div initial={{ width: 0 }} animate={{ width: `${value}%` }} transition={{ duration: .9 }} className="h-full bg-white/80" />
+      </div>
     </div>
-  </div>
-)}
-function Wave(){
+  )
+}
+function Wave() {
   return (
     <div className="flex gap-1">
-      {[0,1,2,3,4].map((n)=> (
-        <motion.span key={n} initial={{ height: 6 }} animate={{ height: [6,18,8,22,6] }} transition={{ duration: .9, repeat: Infinity, delay: n*0.08 }} className="w-1 rounded bg-white/80"/>
+      {[0, 1, 2, 3, 4].map((n) => (
+        <motion.span key={n} initial={{ height: 6 }} animate={{ height: [6, 18, 8, 22, 6] }} transition={{ duration: .9, repeat: Infinity, delay: n * 0.08 }} className="w-1 rounded bg-white/80" />
       ))}
     </div>
   );
 }
-function Avatar(){return(<span className="grid h-6 w-6 place-items-center rounded-full bg-white/20 text-[10px]">A</span>)}
-function Timer(){return(<span className="rounded-md border border-white/15 px-2 py-1 text-xs">00:58</span>)}
-function FloatBadge({children, className}){return(<div className={`pointer-events-none absolute rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-100 backdrop-blur ${className||""}`}>{children}</div>)}
+function Avatar() { return (<span className="grid h-6 w-6 place-items-center rounded-full bg-white/20 text-[10px]">A</span>) }
+function Timer() { return (<span className="rounded-md border border-white/15 px-2 py-1 text-xs">00:58</span>) }
+function FloatBadge({ children, className }) { return (<div className={`pointer-events-none absolute rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-100 backdrop-blur ${className || ""}`}>{children}</div>) }
 
-function labelFor(k){
-  switch(k){
+function labelFor(k) {
+  switch (k) {
     case "journey": return "Day-0 Onboarding";
     case "planner": return "Study Planner";
     case "mocks": return "Adaptive Practice";
@@ -71,7 +78,7 @@ const scenes = [
   { key: "debate", title: "Debate Mode (ClashPoint)", blurb: "1:1, 1:4, or team debates with rubrics to build argumentation.", Icon: DebateIcon },
 ];
 
-function MicroStrip({ type }){
+function MicroStrip({ type }) {
   const base = "mt-4 flex items-center gap-2";
   if (type === "journey") {
     return (
@@ -125,7 +132,8 @@ function MicroStrip({ type }){
   );
 }
 
-const HeroSection = ({ onOpenModal }) => {
+const HeroSection = () => {
+  const { openModal } = useModal();
   const [i, setI] = useState(0);
   const timer = useRef(null);
   const DURATION = 3500; // ms per scene
@@ -154,25 +162,21 @@ const HeroSection = ({ onOpenModal }) => {
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 py-20 md:grid-cols-2 md:py-28 lg:py-32">
         {/* Left: copy */}
         <div className="flex flex-col items-start justify-center">
-          {/* Logo */}
-          <div className="mb-6">
-            <XploarLogo size={64} showText />
-          </div>
 
           <h1 className="text-balance text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
             Finish <span className="bg-gradient-to-r from-indigo-300 to-sky-300 bg-clip-text text-transparent">UPSC Foundation</span> in 100 Days
-            </h1>
+          </h1>
           <p className="mt-4 max-w-xl text-lg text-slate-300 md:text-xl">
             Plan. Practice. Get feedback. Repeat — with an AI co-pilot.
           </p>
 
           <div className="mt-8 flex items-center gap-3">
-              <button
-                onClick={onOpenModal}
+            <button
+              onClick={openModal}
               className="rounded-xl bg-white px-5 py-3 text-slate-900 shadow-lg transition hover:scale-[1.02] active:scale-[.98]"
-              >
-              Start free
-              </button>
+            >
+              Join Waitlist
+            </button>
             <a href="#demo" className="rounded-xl border border-white/20 px-5 py-3 text-white/90 backdrop-blur hover:bg-white/5">
               Watch 60-sec demo
             </a>

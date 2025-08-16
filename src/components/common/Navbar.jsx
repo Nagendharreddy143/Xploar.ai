@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { MenuIcon, CloseIcon } from "./Icons";
-import XploarLogo from "../brand/XploarLogo";
+import { useModal } from "../../context/ModalContext";
 
-const Navbar = ({ onOpenModal = () => {} }) => {
+const Navbar = ({ page }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { openModal } = useModal();
 
   // Effect to add a subtle shadow when the user scrolls
   useEffect(() => {
@@ -30,18 +31,21 @@ const Navbar = ({ onOpenModal = () => {} }) => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 bg-white transition-shadow duration-300 ${
-        isScrolled ? "shadow-md" : ""
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 bg-white transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""
+        }`}
     >
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
             to="/"
             className="transition-transform hover:scale-105"
           >
-            <XploarLogo size={32} />
+            <img
+              src="/Xploar_logo.png"
+              alt="Xploar Logo"
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop Menu */}
@@ -59,7 +63,7 @@ const Navbar = ({ onOpenModal = () => {} }) => {
               </NavLink>
             ))}
             <button
-              onClick={onOpenModal}
+              onClick={openModal}
               className="ml-4 bg-electric-aqua text-void-black font-poppins font-bold px-5 py-2 rounded-lg transition-transform hover:scale-105"
             >
               Join Waitlist
@@ -85,11 +89,10 @@ const Navbar = ({ onOpenModal = () => {} }) => {
 
       {/* Mobile Dropdown */}
       <div
-        className={`md:hidden absolute top-full left-0 w-full bg-white shadow-lg transition-all duration-300 ease-out ${
-          isMenuOpen
-            ? "max-h-96 opacity-100"
-            : "max-h-0 opacity-0 pointer-events-none"
-        }`}
+        className={`md:hidden absolute top-full left-0 w-full bg-white shadow-lg transition-all duration-300 ease-out ${isMenuOpen
+          ? "max-h-96 opacity-100"
+          : "max-h-0 opacity-0 pointer-events-none"
+          }`}
       >
         <div className="flex flex-col px-6 py-4 gap-2">
           {navLinks.map(({ to, label }) => (
@@ -105,7 +108,7 @@ const Navbar = ({ onOpenModal = () => {} }) => {
           ))}
           <button
             onClick={() => {
-              onOpenModal();
+              openModal();
               setMenuOpen(false);
             }}
             className="mt-2 bg-electric-aqua text-void-black font-poppins font-bold w-full py-3 rounded-lg"
