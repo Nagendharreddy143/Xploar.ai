@@ -4,7 +4,49 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+
+  // Optimize dependencies
   optimizeDeps: {
-    include: ['@supabase/supabase-js']
+    include: ['@supabase/supabase-js', 'lucide-react']
+  },
+
+  // Build optimizations
+  build: {
+    // Enable tree shaking and minification
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    },
+
+    // Code splitting for better caching
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Vendor libraries
+          'react-vendor': ['react', 'react-dom'],
+          'ui-vendor': ['framer-motion', 'aos'],
+          'routing': ['react-router-dom'],
+          'icons': ['lucide-react'],
+          'supabase': ['@supabase/supabase-js']
+        }
+      }
+    },
+
+    // Chunk size warnings
+    chunkSizeWarningLimit: 500,
+
+    // Source maps for production debugging
+    sourcemap: false,
+
+    // Target modern browsers
+    target: 'es2020'
+  },
+
+  // Development optimizations
+  server: {
+    hmr: true
   }
 })

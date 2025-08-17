@@ -6,6 +6,7 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const location = useLocation();
@@ -25,15 +26,37 @@ function App() {
   };
 
   return (
-    <MainLayout pageName={getPageName()}>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms-conditions" element={<TermsConditions />} />
-      </Routes>
-    </MainLayout>
+    <Routes>
+      {/* Main pages with layout */}
+      <Route path="/" element={
+        <MainLayout pageName={getPageName()}>
+          <HomePage />
+        </MainLayout>
+      } />
+      <Route path="/about" element={
+        <MainLayout pageName={getPageName()}>
+          <AboutPage />
+        </MainLayout>
+      } />
+      <Route path="/contact" element={
+        <MainLayout pageName={getPageName()}>
+          <ContactPage />
+        </MainLayout>
+      } />
+      <Route path="/privacy-policy" element={
+        <MainLayout pageName={getPageName()}>
+          <PrivacyPolicy />
+        </MainLayout>
+      } />
+      <Route path="/terms-conditions" element={
+        <MainLayout pageName={getPageName()}>
+          <TermsConditions />
+        </MainLayout>
+      } />
+
+      {/* 404 page without layout (standalone) */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 
