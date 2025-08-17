@@ -53,9 +53,8 @@ const ValueCard = ({ icon: Icon, title, color, delay }) => {
       data-aos-delay={delay}
     >
       <div
-        className={`w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center ${
-          colorClasses[color] || "text-electric-aqua"
-        }`}
+        className={`w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center ${colorClasses[color] || "text-electric-aqua"
+          }`}
       >
         <Icon className="w-8 h-8" />
       </div>

@@ -271,3 +271,12 @@ html {
 .animate-slideInUp {
   animation: slideInUp 0.8s ease-out forwards;
 }
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

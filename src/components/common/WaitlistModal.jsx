@@ -125,7 +125,7 @@ const WaitlistModal = memo(({ isOpen, onClose }) => {
             <h4 className="font-poppins text-3xl font-bold text-cosmic-indigo text-center mb-6">
               🚀 UPSC Preparation Platform
             </h4>
-            
+
             {showFeatures ? (
               <div className="mb-6">
                 <div className="grid md:grid-cols-2 gap-4 mb-6">
@@ -140,7 +140,7 @@ const WaitlistModal = memo(({ isOpen, onClose }) => {
                       <li>• Progress Tracking & Streaks</li>
                     </ul>
                   </div>
-                  
+
                   {/* Phase 2 */}
                   <div className="border rounded-lg p-4 bg-green-50">
                     <h5 className="font-semibold text-green-800 mb-2">🎯 Phase 2: Performance & Evaluation</h5>
@@ -153,7 +153,7 @@ const WaitlistModal = memo(({ isOpen, onClose }) => {
                     </ul>
                   </div>
                 </div>
-                
+
                 <div className="text-center mb-4">
                   <button
                     onClick={handleTryDemo}
