@@ -21,6 +21,7 @@ const Navbar = ({ page }) => {
     { to: "/", label: "Home" },
     { to: "/about", label: "About Us" },
     { to: "/contact", label: "Contact" },
+    { to: "/upsc", label: "UPSC Prep" },
   ];
 
   // Style for the currently active navigation link

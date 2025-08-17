@@ -14,9 +14,11 @@
     "aos": "^2.3.4",
     "framer-motion": "^12.23.12",
     "ionicons": "^8.0.13",
+    "lucide-react": "^0.539.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-router-dom": "^7.8.0"
+    "react-router-dom": "^7.8.0",
+    "zustand": "^5.0.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",

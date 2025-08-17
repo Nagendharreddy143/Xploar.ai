@@ -180,6 +180,12 @@ const HeroSection = () => {
             <a href="#demo" className="rounded-xl border border-white/20 px-5 py-3 text-white/90 backdrop-blur hover:bg-white/5">
               Watch 60-sec demo
             </a>
+            <a 
+              href="/upsc" 
+              className="rounded-xl border border-indigo-400/30 px-5 py-3 text-indigo-300 backdrop-blur hover:bg-indigo-400/10 transition-colors"
+            >
+              Try UPSC Prep
+            </a>
           </div>
 
           {/* quick trust strip */}

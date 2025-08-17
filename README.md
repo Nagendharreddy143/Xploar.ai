@@ -1,257 +1,280 @@
 # Xploar.ai - AI-Powered Learning Platform
 
-##  Project Overview
+## 🚀 **Project Overview**
 
-Xploar.ai is a cutting-edge AI-powered learning platform designed to revolutionize competitive exam preparation in India. The platform addresses the talent distribution crisis by providing personalized, adaptive learning experiences that go beyond traditional rote learning methods.
+Xploar.ai is a comprehensive AI-powered learning platform that empowers learners worldwide with adaptive tools. The platform now includes a **full-featured UPSC preparation application** with two distinct phases.
 
-### 🎯 Mission
-To democratize quality education and unlock the innovation potential trapped in administrative roles by providing AI-driven, personalized learning experiences accessible to students across all tiers of Indian cities.
+## 🎯 **What's New - UPSC App Integration**
 
-### 🏆 Vision
-Transform competitive exam preparation from a one-size-fits-all approach to a personalized, adaptive learning journey that fosters critical thinking, problem-solving, and real-world application skills.
+### **Phase 1: Learning & Planning (Foundation)**
+- **Day-0 Onboarding**: Goal setting, start date, duration, daily study hours
+- **Auto 100-Day Plan**: AI-generated personalized study plans
+- **Study Planner**: Interactive daily task management with progress tracking
+- **Multi-Mode Learning**: Read, Watch, Practice (MCQ), Explain, Recall modes
+- **Progress Analytics**: Visual progress bars, streak counting, performance insights
+- **ICS Export**: One-click calendar file export for all planned tasks
 
-## 🛠️ Technology Stack
+### **Phase 2: Performance & Evaluation (Advanced)**
+- **Timed Mock Tests**: Practice tests with negative marking (+1 / -0.33)
+- **Mock History**: Comprehensive tracking of all test attempts
+- **Debate Rooms**: Real-time argumentation practice with timed rounds
+- **Interview Evaluator**: AI-powered scoring for personality test answers
+- **100 Problems Tracker**: Daily problem-solving progress monitoring
+- **Leaderboard**: Competitive motivation system
 
-### Frontend Framework
-- **React 19.1.1** - Modern React with latest features
-- **Vite 7.1.2** - Fast build tool and development server
-- **React Router DOM 7.8.0** - Client-side routing
+## 🏗️ **Architecture & Tech Stack**
 
-### Styling & UI
-- **Tailwind CSS 4.1.11** - Utility-first CSS framework
-- **Framer Motion 12.23.12** - Advanced animations and transitions
-- **AOS (Animate On Scroll) 2.3.4** - Scroll-triggered animations
+### **Frontend**
+- **React 19** with modern hooks and functional components
+- **Tailwind CSS** for utility-first styling
+- **Framer Motion** for smooth animations
+- **Zustand** for lightweight state management
+- **React Router** for navigation
 
-### Icons & Assets
-- **Ionicons 8.0.13** - Comprehensive icon library
-- Custom SVG icons and brand assets
+### **Backend & Database**
+- **Supabase** for backend services and database
+- **PostgreSQL** for data persistence
+- **Real-time subscriptions** for live updates
 
-### Development Tools
-- **ESLint 9.33.0** - Code linting and quality assurance
-- **TypeScript types** - Type safety for React components
+### **Deployment & Infrastructure**
+- **Vercel** for frontend hosting and deployment
+- **GitHub** for version control and CI/CD
+- **Auto-deployment** on every push to main branch
 
-## 📁 Project Structure
-Xploar.ai/
-├── public/ # Static assets
-│ ├── aboutUs.png # About page hero image
-│ ├── AI_Learning_Platform_Animation_Request.mp4 # Platform showcase video
-│ ├── fav_icon.png # Favicon
-│ ├── logo-vertial.png # Vertical logo variant
-│ ├── logo-xploar.svg # Main logo (SVG)
-│ ├── Xploar_logo.png # Main logo (PNG)
-│ └── Xploarai_Platform_Animation_Showcase.mp4 # Animation showcase
-├── src/
-│ ├── components/ # Reusable UI components
-│ │ ├── about/ # About page components
-│ │ │ ├── AboutHero.jsx # About page hero section
-│ │ │ ├── CoreValues.jsx # Company core values display
-│ │ │ ├── Founders.jsx # Founders information
-│ │ │ └── MissionVision.jsx # Mission and vision statements
-│ │ ├── brand/ # Brand-related components
-│ │ │ └── XploarLogo.jsx # Logo component
-│ │ ├── common/ # Shared components
-│ │ │ ├── Footer.jsx # Site footer
-│ │ │ ├── Icons.jsx # Centralized icon definitions
-│ │ │ ├── Navbar.jsx # Navigation bar
-│ │ │ └── WaitlistModal.jsx # Waitlist signup modal
-│ │ ├── contact/ # Contact page components
-│ │ │ └── ContactForm.jsx # Contact form
-│ │ └── home/ # Home page components
-│ │ ├── AllInOneSection.jsx # All-in-one platform features
-│ │ ├── BenefitsSection.jsx # Platform benefits
-│ │ ├── ChallengeSection.jsx # Problem statement
-│ │ ├── CtaSection.jsx # Call-to-action section
-│ │ ├── DotBackground.jsx # Animated background
-│ │ ├── FaqSection.jsx # Frequently asked questions
-│ │ ├── FeatureCard.jsx # Feature display cards
-│ │ ├── FeaturesSection.jsx # Main features showcase
-│ │ ├── HeroSection.jsx # Home page hero with animations
-│ │ ├── HowItWorksSection.jsx # Platform workflow
-│ │ └── OutcomesSection.jsx # Expected outcomes
-│ ├── context/ # React Context providers
-│ │ └── ModalContext.jsx # Modal state management
-│ ├── hooks/ # Custom React hooks
-│ │ ├── useAos.js # AOS animation hook
-│ │ ├── useDotBackground.js # Background animation hook
-│ │ ├── useScrollAnimation.js # Scroll-based animations
-│ │ └── useTimelineAnimation.js # Timeline animations
-│ ├── layouts/ # Page layout components
-│ │ └── MainLayout.jsx # Main application layout
-│ ├── pages/ # Page components
-│ │ ├── AboutPage.jsx # About page
-│ │ ├── ContactPage.jsx # Contact page
-│ │ └── HomePage.jsx # Home page
-│ ├── App.jsx # Main application component
-│ ├── index.css # Global styles
-│ └── main.jsx # Application entry point
-├── package.json # Dependencies and scripts
-├── vite.config.js # Vite configuration
-└── eslint.config.js # ESLint configuration
+## 📁 **Project Structure**
 
-
-## �� Key Features
-
-### 1. **Journey Builder**
-- Personalized learning paths (e.g., "UPSC Foundation in 100 days")
-- Daily bite-sized plans with auto-revision
-- Progress tracking and milestone management
-
-### 2. **Study Planner**
-- Clear task management with streaks
-- Progress percentage tracking
-- Adaptive scheduling based on performance
-
-### 3. **AI Mock Tests**
-- Daily adaptive MCQs
-- Weekly full-length mock tests
-- Instant analytics and performance insights
-
-### 4. **Answer Evaluator (Mains)**
-- Upload or write answers
-- AI-powered evaluation of structure, relevance, depth
-- Example scoring and improvement suggestions
-
-### 5. **Voice Tutor**
-- Hands-free doubt resolution
-- Crisp, cited explanations
-- Natural language interaction
-
-### 6. **Current Affairs Nano-Feed**
-- Condensed, exam-ready updates
-- Recall checks and retention tools
-- Real-time content curation
-
-### 7. **Debate Mode (ClashPoint)**
-- 1:1, 1:4, or team debates
-- Structured argumentation building
-- Performance rubrics and feedback
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js (v18 or higher)
-- npm, yarn, or pnpm package manager
-
-### Installation
-```bash
-# Clone the repository
-git clone <repository-url>
-cd Xploar.ai
-
-# Install dependencies
-npm install
-# or
-yarn install
-# or
-pnpm install
-
-# Start development server
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```
+src/
+├── components/
+│   ├── ui/                    # Reusable UI component library
+│   │   ├── button.jsx        # Button component with variants
+│   │   ├── card.jsx          # Card components (Header, Title, Content)
+│   │   ├── tabs.jsx          # Tab system with context
+│   │   ├── progress.jsx      # Progress bars and indicators
+│   │   ├── badge.jsx         # Badge component with variants
+│   │   ├── input.jsx         # Input fields with validation
+│   │   ├── switch.jsx        # Toggle switches
+│   │   ├── textarea.jsx      # Multi-line text inputs
+│   │   └── index.js          # Centralized component exports
+│   ├── upsc/                 # UPSC application components
+│   │   ├── XploarPhase1.jsx # Phase 1: Learning & Planning
+│   │   └── XploarPhase2.jsx # Phase 2: Performance & Evaluation
+│   ├── common/               # Shared components (Navbar, Footer, etc.)
+│   ├── home/                 # Homepage components
+│   ├── about/                # About page components
+│   └── contact/              # Contact page components
+├── pages/                    # Main page components
+├── layouts/                  # Layout wrappers
+├── hooks/                    # Custom React hooks
+├── context/                  # React context providers
+├── lib/                      # Utility libraries and configurations
+└── assets/                   # Static assets
 ```
 
-### Available Scripts
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run lint` - Run ESLint
-- `npm run preview` - Preview production build
+## 🚀 **Getting Started**
 
-## 🎯 Target Audience
+### **Prerequisites**
+- Node.js 18+ 
+- npm or yarn
+- Git
+- Supabase account
+- Vercel account
 
-### Primary Users
-- **UPSC Aspirants** - Civil service examination candidates
-- **Competitive Exam Students** - Banking, SSC, Railways, etc.
-- **Tier-2/3 City Students** - Limited access to quality coaching
-- **Working Professionals** - Seeking career transitions
+### **Local Development Setup**
 
-### User Personas
-1. **The Traditional Learner** - Seeks structured, familiar learning methods
-2. **The Tech-Savvy Student** - Embraces AI-powered personalization
-3. **The Time-Constrained Professional** - Needs efficient, focused preparation
-4. **The Rural Aspirant** - Requires accessible, quality education
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd Xploar.ai-5
+   ```
 
-## 🔧 Development Guidelines
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-### Component Architecture
-- **Atomic Design** - Components follow atomic design principles
-- **Composition over Inheritance** - Prefer component composition
-- **Custom Hooks** - Reusable logic extracted into custom hooks
-- **Context API** - State management for global app state
+3. **Environment setup**
+   ```bash
+   # Copy environment template
+   cp .env.example .env.local
+   
+   # Add your Supabase credentials
+   VITE_SUPABASE_URL=your_supabase_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
 
-### Animation Strategy
-- **Framer Motion** - Complex animations and transitions
-- **AOS** - Scroll-triggered animations
-- **Custom Hooks** - Reusable animation logic
-- **Performance Optimized** - GPU-accelerated animations
+4. **Start development server**
+   ```bash
+   npm run dev
+   ```
 
-### Styling Approach
-- **Tailwind CSS** - Utility-first styling
-- **Component-Scoped** - Styles co-located with components
-- **Responsive Design** - Mobile-first approach
-- **Design System** - Consistent spacing, colors, and typography
+5. **Access the application**
+   - **Main site**: http://localhost:5173
+   - **UPSC Phase 1**: http://localhost:5173/upsc
+   - **UPSC Phase 2**: http://localhost:5173/upsc2
 
-## 📱 Responsive Design
+## 🧪 **Testing the UPSC App**
 
-The platform is built with a mobile-first approach, ensuring optimal experience across:
-- **Mobile** (320px - 768px)
-- **Tablet** (768px - 1024px)
-- **Desktop** (1024px+)
+### **Phase 1 Testing**
+1. Navigate to `/upsc`
+2. **Onboarding**: Set goals, dates, generate 100-day plan
+3. **Study Planner**: Navigate days, toggle tasks, track progress
+4. **Multi-Mode**: Test Read, Practice, Explain, Recall modes
+5. **Syllabus**: View topic coverage progress
 
-## �� Design System
+### **Phase 2 Testing**
+1. Navigate to `/upsc2`
+2. **Mocks**: Start timed tests, check negative marking
+3. **Debate**: Practice argumentation with timer
+4. **Interview**: Answer questions, get AI evaluation
+5. **100 Problems**: Track daily problem solving
 
-### Color Palette
-- **Primary**: Cosmic Indigo (#6366f1)
-- **Secondary**: Electric Aqua (#00d4ff)
-- **Background**: Dark theme with white/10 overlays
-- **Text**: Slate variations for hierarchy
+## 🔧 **Development Workflow**
 
-### Typography
-- **Headings**: Space Grotesk font family
-- **Body**: System font stack
-- **Hierarchy**: Clear size and weight variations
+### **Making Changes**
+1. **Create feature branch**
+   ```bash
+   git checkout -b feature/upsc-enhancement
+   ```
 
-### Spacing
-- **Consistent Scale**: 4px base unit system
-- **Responsive**: Adaptive spacing for different screen sizes
+2. **Make your changes**
+   - Update components in `src/components/upsc/`
+   - Modify UI components in `src/components/ui/`
+   - Update routing in `src/App.jsx`
 
-## 🔮 Future Roadmap
+3. **Test locally**
+   ```bash
+   npm run build  # Check for build errors
+   npm run dev    # Test functionality
+   ```
 
-### Phase 1 (Current)
-- ✅ Core platform development
-- ✅ Basic AI integration
-- ✅ Responsive design implementation
+4. **Commit and push**
+   ```bash
+   git add .
+   git commit -m "feat: add UPSC mock test functionality"
+   git push origin feature/upsc-enhancement
+   ```
 
-### Phase 2 (Planned)
-- 🔄 Advanced AI personalization
-- 🔄 Real-time collaboration features
-- 🔄 Mobile app development
+5. **Create Pull Request** on GitHub
 
-### Phase 3 (Future)
-- �� AI-powered content generation
-- 📋 Virtual reality learning experiences
-- �� Advanced analytics and insights
+### **Auto-Deployment**
+- **Vercel** automatically deploys on every push to `main` branch
+- **Preview deployments** are created for pull requests
+- **Production** is updated automatically after merge
 
-## 🤝 Contributing
+## 📊 **Current Status & Progress**
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+### **✅ Completed Features**
+- [x] **UI Component Library**: Complete set of reusable components
+- [x] **UPSC Phase 1**: Full functionality with state management
+- [x] **UPSC Phase 2**: Complete mock test and evaluation system
+- [x] **Routing**: Both phases accessible via dedicated routes
+- [x] **Waitlist Integration**: Updated modal with UPSC features and demo
+- [x] **Responsive Design**: Mobile-first approach with Tailwind CSS
+- [x] **State Management**: Zustand store with localStorage persistence
+- [x] **Build System**: Production-ready build process
 
-## 📄 License
+### **🔄 In Progress**
+- [ ] **Performance Optimization**: Code splitting and lazy loading
+- [ ] **Error Handling**: Comprehensive error boundaries
+- [ ] **Testing**: Unit and integration tests
+- [ ] **Analytics**: User behavior tracking
+
+### **📋 Planned Features**
+- [ ] **User Authentication**: Supabase auth integration
+- [ ] **Data Sync**: Real-time updates across devices
+- [ ] **Admin Panel**: Content management system
+- [ ] **Mobile App**: React Native version
+
+## 🐛 **Troubleshooting**
+
+### **Common Issues**
+
+**Blank Screen on UPSC Routes**
+```bash
+# Check browser console for errors
+# Verify component imports in App.jsx
+# Ensure all UI components are properly exported
+```
+
+**Build Errors**
+```bash
+# Clear node_modules and reinstall
+rm -rf node_modules package-lock.json
+npm install
+
+# Check for syntax errors
+npm run build
+```
+
+**Hot Reload Not Working**
+```bash
+# Restart development server
+npm run dev
+
+# Hard refresh browser (Ctrl+F5)
+```
+
+### **Performance Issues**
+- **Large bundle size**: Consider code splitting
+- **Slow loading**: Check network tab for bottlenecks
+- **Memory leaks**: Verify useEffect cleanup functions
+
+## 📚 **API Documentation**
+
+### **Supabase Tables**
+
+**waitlist**
+```sql
+- id: uuid (primary key)
+- name: text
+- email: text
+- created_at: timestamp
+```
+
+**Future Tables for UPSC App**
+```sql
+-- User progress tracking
+user_progress (user_id, topic_id, completion_percentage, last_updated)
+
+-- Mock test results
+mock_results (user_id, subject, score, total_questions, time_taken, date)
+
+-- Study plans
+study_plans (user_id, plan_data, start_date, end_date)
+```
+
+## 🤝 **Contributing**
+
+### **Code Standards**
+- **ESLint**: Follow project linting rules
+- **Prettier**: Consistent code formatting
+- **TypeScript**: Consider migrating for better type safety
+- **Testing**: Write tests for new features
+
+### **Commit Convention**
+```
+feat: add new feature
+fix: bug fix
+docs: documentation updates
+style: formatting changes
+refactor: code restructuring
+test: adding tests
+chore: maintenance tasks
+```
+
+## 📞 **Support & Contact**
+
+- **Issues**: Create GitHub issues for bugs/features
+- **Discussions**: Use GitHub Discussions for questions
+- **Email**: support@xploar.ai
+
+## 📄 **License**
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📞 Contact
-
-- **Website**: [Xploar.ai](https://xploar.ai)
-- **Email**: [contact@xploar.ai](mailto:contact@xploar.ai)
-- **LinkedIn**: [Xploar.ai](https://linkedin.com/company/xploar-ai)
-
 ---
 
-**Built with ❤️ for the future of education in India**
+**Last Updated**: December 2024
+**Version**: 1.0.0
+**Status**: Production Ready - UPSC App Integration Complete
