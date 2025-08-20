@@ -86,7 +86,7 @@ const WaitlistModal = memo(({ isOpen, onClose }) => {
     // Close modal and redirect to UPSC app
     handleClose();
     setTimeout(() => {
-      window.location.href = '/upsc';
+      window.location.href = '/';
     }, 300);
   }, [handleClose]);
 
