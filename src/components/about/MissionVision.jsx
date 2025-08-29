@@ -1,5 +1,6 @@
 import React from "react";
 import useAos from "../../hooks/useAos";
+import LazyVideo from "../common/LazyVideo";
 
 // Importing the new icons from your central file
 import { LockClosedIcon, UserMinusIcon, BookOpenIcon } from "../common/Icons";
@@ -30,21 +31,21 @@ const MissionVision = () => {
           {/* Left Column: Video */}
           {/* FIX: Using the robust "padding-top" trick for a guaranteed aspect ratio */}
           <div
-            className="lg:col-span-3 relative rounded-xl shadow-2xl overflow-hidden pt-[56.25%] bg-gray-200"
+            className="lg:col-span-3 relative rounded-xl shadow-2xl overflow-hidden bg-gray-100"
             data-aos="fade-right"
+            style={{ paddingTop: "56.25%" }} // 16:9 aspect ratio
           >
-            <video
-              autoPlay
-              muted
-              playsInline
-              className="absolute top-0 left-0 w-full h-full object-cover"
-            >
-              <source
-                src="/AI_Learning_Platform_Animation_Request.mp4"
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
+            <div className="absolute inset-0 bg-gradient-to-br from-cosmic-indigo/5 to-electric-aqua/5"></div>
+            <iframe
+              src="https://www.youtube.com/embed/NIx5-4zujuA"
+              title="Xploar.ai Mission and Vision"
+              className="absolute inset-0 w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              loading="lazy"
+            />
+            {/* Subtle overlay for better video contrast */}
+            <div className="absolute inset-0 pointer-events-none" style={{ boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.1)" }}></div>
           </div>
 
           {/* Right Column: Text content */}
@@ -54,12 +55,10 @@ const MissionVision = () => {
             data-aos-delay="200"
           >
             <h2 className="font-space-grotesk text-3xl lg:text-4xl font-bold text-cosmic-indigo mb-6 leading-tight">
-              India has a talent distribution crisis.
+              India has talent everywhere — but opportunity isn't evenly spread.
             </h2>
             <p className="text-lg text-card-text leading-relaxed mb-8">
-              Every year, millions of brilliant minds get funneled into
-              traditional competitive exams. While noble, this creates a massive
-              opportunity cost:
+              We're here to change that with AI-powered guidance that turns curiosity into clarity.
             </p>
             <div className="space-y-6">
               {opportunityCosts.map((item, index) => (

@@ -67,10 +67,10 @@ const CtaSection = () => {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              Ready to Turn UPSC Preparation from{" "}
+              Ready to Transform Your{" "}
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-electric-aqua to-neon-lilac bg-clip-text text-transparent">
-                  Overwhelming to Organized?
+                  UPSC Journey?
                 </span>
                 <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-electric-aqua to-neon-lilac rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700"></div>
               </span>
@@ -104,10 +104,10 @@ const CtaSection = () => {
             >
               <button
                 onClick={openModal}
-                className="relative px-10 py-5 bg-electric-aqua hover:bg-electric-aqua/90 rounded-2xl font-poppins font-bold text-void-black text-xl transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-electric-aqua/50"
+                className="relative px-10 py-5 bg-[#1A1A5A] rounded-2xl font-poppins font-bold text-white text-xl transform hover:translate-y-[-3px] hover:shadow-2xl transition-all duration-300 hover:bg-[#1A1A5A]/90 focus:outline-none focus:ring-4 focus:ring-[#1A1A5A]/30"
               >
                 <span className="flex items-center justify-center gap-3">
-                  Join Wait List
+                  Start Your 100-Day Journey
                   <ArrowRightIcon className="w-6 h-6" />
                 </span>
               </button>

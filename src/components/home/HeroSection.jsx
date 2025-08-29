@@ -176,10 +176,20 @@ const HeroSection = () => {
         <div className="flex flex-col items-start justify-center">
 
           <h1 className="text-balance text-3xl sm:text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-            Finish <span className="bg-gradient-to-r from-indigo-300 to-sky-300 bg-clip-text text-transparent">UPSC Foundation</span> in 100 Days
+            Crack the{" "}
+            <span className="relative">
+              <span className="animate-gradient-flow bg-gradient-to-r from-electric-aqua via-neon-lilac to-cosmic-indigo bg-[length:200%_auto] bg-clip-text text-transparent">
+                UPSC Foundation
+              </span>
+              <span className="absolute inset-0 blur-xl opacity-30 animate-gradient-flow bg-gradient-to-r from-electric-aqua via-neon-lilac to-cosmic-indigo bg-[length:200%_auto]" aria-hidden="true"></span>
+            </span>{" "}
+            in Just 100 Days
           </h1>
           <p className="mt-4 max-w-xl text-base sm:text-lg text-slate-300 md:text-xl">
             Plan. Practice. Get feedback. Repeat — with an AI co-pilot.
+          </p>
+          <p className="mt-2 text-sm sm:text-base text-slate-400 italic">
+            Where Curiosity Becomes Clarity
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full">
@@ -187,10 +197,10 @@ const HeroSection = () => {
               onClick={openModal}
               className="rounded-xl bg-white px-4 sm:px-5 py-3 text-slate-900 shadow-lg transition hover:scale-[1.02] active:scale-[.98] text-sm sm:text-base"
             >
-              Join Waitlist
+              Start Your 100-Day Journey
             </button>
             <a href="#demo" className="rounded-xl border border-white/20 px-4 sm:px-5 py-3 text-white/90 backdrop-blur hover:bg-white/5 text-sm sm:text-base">
-              Watch 60-sec demo
+              See It in 60 Seconds
             </a>
           </div>
 

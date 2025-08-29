@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, memo } from "react";
-import { supabase } from "../../lib/supabase";
-import { handleSupabaseError, validateEmail, sanitizeInput } from "../../lib/supabase-utils";
+// import { supabase } from "../../lib/supabase";
+// import { handleSupabaseError, validateEmail, sanitizeInput } from "../../lib/supabase-utils";
 
 const WaitlistModal = memo(({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
@@ -123,7 +123,7 @@ const WaitlistModal = memo(({ isOpen, onClose }) => {
         {!isSuccess ? (
           <div id="modal-initial-state">
             <h4 className="font-poppins text-3xl font-bold text-cosmic-indigo text-center mb-6">
-              🚀 UPSC Preparation Platform
+              🚀 Start Your 100-Day UPSC Journey
             </h4>
 
             {showFeatures ? (
@@ -157,7 +157,7 @@ const WaitlistModal = memo(({ isOpen, onClose }) => {
                 <div className="text-center mb-4">
                   <button
                     onClick={handleTryDemo}
-                    className="bg-electric-aqua text-void-black font-bold px-8 py-3 rounded-lg hover:scale-105 transition-transform mr-4"
+                    className="bg-[#1A1A5A] text-white font-bold px-8 py-3 rounded-lg transform hover:translate-y-[-2px] hover:shadow-lg transition-all duration-300 hover:bg-[#1A1A5A]/90 mr-4 focus:ring-4 focus:ring-[#1A1A5A]/30"
                   >
                     🎮 Try Demo Now
                   </button>
@@ -165,14 +165,14 @@ const WaitlistModal = memo(({ isOpen, onClose }) => {
                     onClick={toggleFeatures}
                     className="bg-gray-200 text-gray-700 font-bold px-6 py-3 rounded-lg hover:bg-gray-300 transition"
                   >
-                    Join Waitlist
+                    Join the Waitlist
                   </button>
                 </div>
               </div>
             ) : (
               <div>
                 <p className="text-center text-card-text mb-6">
-                  Be among the first to access our AI-powered UPSC preparation platform.
+                  Be among the first to access our AI-powered UPSC preparation platform that turns curiosity into clarity.
                 </p>
 
                 <div className="space-y-3">
@@ -215,13 +215,13 @@ const WaitlistModal = memo(({ isOpen, onClose }) => {
                   <button
                     onClick={handleSubmit}
                     type="button"
-                    className={`bg-electric-aqua text-void-black font-bold px-5 py-2 rounded-lg transition ${isLoading
+                    className={`bg-[#1A1A5A] text-white font-bold px-5 py-2 rounded-lg transition ${isLoading
                       ? 'opacity-50 cursor-not-allowed'
-                      : 'hover:scale-105 transition-transform'
+                      : 'hover:bg-[#1A1A5A]/90 hover:shadow-lg transition-all duration-300'
                       }`}
                     disabled={isLoading}
                   >
-                    {isLoading ? 'Adding...' : 'Notify Me'}
+                    {isLoading ? 'Adding...' : 'Start My Journey'}
                   </button>
                 </div>
               </div>
@@ -239,7 +239,7 @@ const WaitlistModal = memo(({ isOpen, onClose }) => {
             <div className="mt-6 space-y-3">
               <button
                 onClick={handleTryDemo}
-                className="w-full bg-electric-aqua text-void-black font-bold px-5 py-2 rounded-lg hover:scale-105 transition-transform"
+                className="w-full bg-[#1A1A5A] text-white font-bold px-5 py-2 rounded-lg transform hover:translate-y-[-2px] hover:shadow-lg transition-all duration-300 hover:bg-[#1A1A5A]/90 focus:ring-4 focus:ring-[#1A1A5A]/30"
               >
                 🎮 Try Demo Now
               </button>

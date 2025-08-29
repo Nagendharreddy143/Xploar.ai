@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useAos from "../../hooks/useAos";
 
-// Importing the necessary icons from your central file
-import { TwitterIcon, LinkedInIcon, InstagramIcon } from "../common/Icons";
+// Importing icons from Lucide React
+import { Twitter, Linkedin, Instagram, Youtube } from "lucide-react";
 
 const Footer = () => {
   useAos();
@@ -24,24 +24,49 @@ const Footer = () => {
               Your smart study companion, designed to turn your curiosity into
               clarity for the UPSC exam.
             </p>
-            <div className="mt-6 flex space-x-4">
+            <p className="mt-2 text-sm text-gray-300 italic">
+              Where Curiosity Becomes Clarity
+            </p>
+            <div className="mt-6 flex space-x-6">
               <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
+                href="https://www.instagram.com/xploar.ai?igsh=M2tiODdvbHp6MGtq"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative"
+                aria-label="Follow us on Instagram"
               >
-                <TwitterIcon className="w-6 h-6" />
+                <div className="absolute -inset-2 bg-gradient-to-r from-[#1A1A5A] to-[#1A1A5A]/70 rounded-full opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                <Instagram className="w-6 h-6 text-gray-400 group-hover:text-[#1A1A5A] transition-colors" />
               </a>
               <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
+                href="https://x.com/XploarAi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative"
+                aria-label="Follow us on Twitter"
               >
-                <InstagramIcon className="w-6 h-6" />
+                <div className="absolute -inset-2 bg-gradient-to-r from-[#1A1A5A] to-[#1A1A5A]/70 rounded-full opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                <Twitter className="w-6 h-6 text-gray-400 group-hover:text-[#1A1A5A] transition-colors" />
               </a>
               <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
+                href="http://youtube.com/@xploarai?sub_confirmation=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative"
+                aria-label="Subscribe to our YouTube channel"
               >
-                <LinkedInIcon className="w-6 h-6" />
+                <div className="absolute -inset-2 bg-gradient-to-r from-[#1A1A5A] to-[#1A1A5A]/70 rounded-full opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                <Youtube className="w-6 h-6 text-gray-400 group-hover:text-[#1A1A5A] transition-colors" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/xploarai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative"
+                aria-label="Connect with us on LinkedIn"
+              >
+                <div className="absolute -inset-2 bg-gradient-to-r from-[#1A1A5A] to-[#1A1A5A]/70 rounded-full opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                <Linkedin className="w-6 h-6 text-gray-400 group-hover:text-[#1A1A5A] transition-colors" />
               </a>
             </div>
           </div>
@@ -58,17 +83,21 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/about"
-                    className="hover:text-white transition-colors"
+                    className="hover:text-[#1A1A5A] transition-colors duration-300 flex items-center gap-2"
+                    onClick={() => window.scrollTo(0, 0)}
                   >
                     About Us
+                    <span className="opacity-0 transform translate-x-[-10px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">→</span>
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/contact"
-                    className="hover:text-white transition-colors"
+                    className="hover:text-[#1A1A5A] transition-colors duration-300 flex items-center gap-2"
+                    onClick={() => window.scrollTo(0, 0)}
                   >
                     Contact
+                    <span className="opacity-0 transform translate-x-[-10px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">→</span>
                   </Link>
                 </li>
               </ul>

@@ -68,7 +68,7 @@ const HowItWorksSection = () => {
         {/* Header */}
         <div data-aos="fade-up" className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="font-space-grotesk text-3xl lg:text-4xl font-bold text-cosmic-indigo mb-4">
-            From Chaos to Clarity in 3 Simple Steps
+            Clarity in 3 Steps: Tell Us. Train Smart. Transform.
           </h2>
           <p className="text-lg text-card-text">
             Transform your UPSC preparation with a streamlined process designed

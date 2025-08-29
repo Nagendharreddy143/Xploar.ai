@@ -28,13 +28,13 @@ const outcomes = [
 // A cleaner, more standard card component
 const OutcomeCard = ({ value, description, icon: Icon, metric, delay }) => (
   <div
-    className="group bg-white rounded-2xl p-8 border border-gray-100 transition-all duration-300 ease-out hover:border-electric-aqua/50 hover:shadow-lg hover:-translate-y-1"
+    className="group bg-light rounded-2xl p-8 border border-gray-100 transition-all duration-300 ease-out hover:border-secondary/50 hover:shadow-lg hover:-translate-y-1"
     data-aos="fade-up"
     data-aos-delay={delay}
   >
     <div className="flex items-center gap-4 mb-4">
-      <div className="w-12 h-12 bg-electric-aqua/10 rounded-xl flex items-center justify-center group-hover:bg-electric-aqua/20 transition-colors duration-300">
-        <Icon className="w-6 h-6 text-electric-aqua" />
+      <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center group-hover:bg-secondary/20 transition-colors duration-300">
+        <Icon className="w-6 h-6 text-secondary" />
       </div>
       <h3 className="font-semibold text-lg text-cosmic-indigo">{metric}</h3>
     </div>
@@ -54,11 +54,10 @@ const OutcomesSection = () => {
         {/* Header section */}
         <div className="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
           <h2 className="font-space-grotesk text-3xl lg:text-4xl font-bold text-cosmic-indigo mb-4">
-            Verified Outcomes, Real Results
+            Results You Can See — and Trust
           </h2>
           <p className="text-lg text-card-text leading-relaxed">
-            Our AI-driven approach isn't just theory. It delivers measurable
-            improvements for aspirants like you.
+            Backed by AI, Proven by Aspirants.
           </p>
         </div>
 

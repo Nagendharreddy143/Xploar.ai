@@ -65,11 +65,10 @@ const AllInOneSection = () => {
           {/* Left Column: Headline and Description */}
           <div data-aos="fade-right">
             <h2 className="font-space-grotesk text-3xl lg:text-4xl font-bold text-cosmic-indigo mb-6 leading-tight">
-              One Platform That Plans, Teaches, Tests & Fixes Everything
+              One Platform. Every Answer.
             </h2>
             <p className="text-lg text-card-text leading-relaxed">
-              Stop juggling 10 different apps. Xploar.ai is your single AI
-              companion for the entire UPSC journey.
+              From planning your day to fixing your weak spots — Xploar.ai is your all-in-one study ally.
             </p>
           </div>
 

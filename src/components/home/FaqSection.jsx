@@ -9,7 +9,7 @@ const faqData = [
       "A guided plan covering all core GS + CSAT subjects with built-in practice and revision loops. Think of it as your personal UPSC GPS.",
   },
   {
-    question: "I'm a complete beginner. Will this work for me?",
+    question: "I'm new to UPSC. Can this work for me?",
     answer:
       "Absolutely. Our AI adapts to your current level and gradually increases difficulty as you improve.",
   },
@@ -19,12 +19,12 @@ const faqData = [
       "Expert-curated question banks + AI-generated variants, all reviewed against UPSC marking rubrics and previous year patterns.",
   },
   {
-    question: "What if I miss days or need to reschedule?",
+    question: "What if I miss a few days?",
     answer:
       "Life happens. Our smart rescheduling keeps your plan realistic and achievable without the guilt.",
   },
   {
-    question: "Will this replace my coaching institute?",
+    question: "Will this replace coaching, or work with it?",
     answer:
       "It complements classroom learning with personalization, detailed analytics, and daily consistency that no human teacher can provide at scale.",
   },

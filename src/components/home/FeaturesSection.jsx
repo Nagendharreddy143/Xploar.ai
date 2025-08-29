@@ -81,11 +81,10 @@ const FeaturesSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center" data-aos="fade-up">
           <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-cosmic-indigo">
-            7 Game-Changing Features That UPSC Toppers Wish They Had
+            One Platform. Every Answer.
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Instead of leaving you alone with books, Xploar.ai becomes your
-            personal study companion that guides you every day.
+            From planning your day to fixing your weak spots — Xploar.ai is your all-in-one study ally.
           </p>
         </div>
         <div className="relative mt-16">
