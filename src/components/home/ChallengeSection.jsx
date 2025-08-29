@@ -71,12 +71,10 @@ const ChallengeSection = () => {
         {/* Header */}
         <div data-aos="fade-up" className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold text-cosmic-indigo mb-4">
-            The UPSC Prep Struggle is Real
+            UPSC Prep Doesn't Have to Feel Overwhelming
           </h2>
           <p className="text-lg text-card-text">
-            Preparing for the civil services exam isn't just about hard work —
-            it's about working smart. We help you cut through the noise and
-            focus on what truly matters.
+            We cut through the noise, organize your journey, and keep you focused on what matters most.
           </p>
         </div>
 

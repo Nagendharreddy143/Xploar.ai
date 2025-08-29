@@ -23,6 +23,13 @@ const Navbar = ({ page }) => {
     { to: "/contact", label: "Contact" },
   ];
 
+  const handleNavClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   const activeLinkStyle = {
     color: "#2B2F77",
     fontWeight: "700",
@@ -37,11 +44,21 @@ const Navbar = ({ page }) => {
       className={`fixed top-0 left-0 w-full z-50 transition-shadow duration-300 bg-white ${isScrolled ? "shadow-[0_8px_30px_rgba(0,0,0,0.12)]" : ""
         }`}
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-0 md:px-2">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <motion.div whileHover={{ scale: 1.08, rotate: 3 }} transition={{ type: "spring", stiffness: 300 }}>
-            <Link to="/">
+          <motion.div 
+            whileHover={{ scale: 1.08, rotate: 3 }} 
+            transition={{ type: "spring", stiffness: 300 }}
+            className="ml-1 md:ml-2"
+          >
+            <Link 
+              to="/" 
+              onClick={() => {
+                window.scrollTo(0, 0);
+                setMenuOpen(false);
+              }}
+            >
               <img
                 src="/Xploar_logo.png"
                 alt="Xploar Logo"
@@ -56,6 +73,7 @@ const Navbar = ({ page }) => {
               <NavLink
                 key={to}
                 to={to}
+                onClick={handleNavClick}
                 style={({ isActive }) => (isActive ? activeLinkStyle : undefined)}
                 className="relative font-poppins text-gray-600 hover:text-cosmic-indigo transition-colors group"
               >
@@ -65,12 +83,12 @@ const Navbar = ({ page }) => {
               </NavLink>
             ))}
             <motion.button
-              whileHover={{ scale: 1.1, boxShadow: "0px 4px 20px rgba(0,255,200,0.6)" }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               onClick={openModal}
-              className="ml-4 bg-electric-aqua text-void-black font-poppins font-bold px-5 py-2 rounded-xl shadow-lg transition-transform"
+              className="ml-4 bg-[#1A1A5A] text-white font-poppins font-bold px-5 py-2 rounded-xl shadow-lg transform hover:translate-y-[-1px] hover:shadow-xl transition-all duration-300 hover:bg-[#141441] focus:ring-4 focus:ring-[#1A1A5A]/30"
             >
-              Join Waitlist
+              Start Your Journey
             </motion.button>
           </div>
 
@@ -106,7 +124,10 @@ const Navbar = ({ page }) => {
                 <NavLink
                   key={to}
                   to={to}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    handleNavClick();
+                  }}
                   style={({ isActive }) => (isActive ? activeLinkStyle : undefined)}
                   className="text-center py-2 font-poppins text-gray-700 rounded-lg hover:bg-gray-100 transition-all"
                 >
@@ -120,9 +141,9 @@ const Navbar = ({ page }) => {
                   openModal();
                   setMenuOpen(false);
                 }}
-                className="mt-2 bg-electric-aqua text-void-black font-poppins font-bold w-full py-3 rounded-lg shadow-md"
+                className="mt-2 bg-[#1A1A5A] text-white font-poppins font-bold w-full py-3 rounded-lg shadow-md hover:bg-[#1A1A5A]/90 transform hover:translate-y-[-2px] transition-all duration-300"
               >
-                Join Waitlist
+                Start Your Journey
               </motion.button>
             </div>
           </motion.div>

@@ -3,7 +3,7 @@ import useAos from "../../hooks/useAos";
 import { supabase } from "../../lib/supabase";
 import { handleSupabaseError, validateEmail, sanitizeInput } from "../../lib/supabase-utils";
 
-// Importing the necessary icons from your central file
+// Importing the necessary icons from you r central file
 import {
   MailIcon,
   WhatsAppIcon,
@@ -24,12 +24,7 @@ const contactSections = [
         value: "support@xplorar.ai",
         href: "mailto:support@xplorar.ai",
       },
-      {
-        icon: WhatsAppIcon,
-        label: "WhatsApp",
-        value: "+91-XXXXX-XXXXX",
-        href: "#",
-      },
+      
     ],
     note: "Response Time: Within 2 hours (9 AM - 9 PM IST)",
   },
@@ -39,15 +34,10 @@ const contactSections = [
       {
         icon: MailIcon,
         label: "Email",
-        value: "partnerships@xplorar.ai",
-        href: "mailto:partnerships@xplorar.ai",
+        value: "partnerships@xploar.ai",
+        href: "mailto:partnerships@xploar.ai",
       },
-      {
-        icon: PhoneIcon,
-        label: "Call",
-        value: "+91-XXXXX-XXXXX",
-        href: "tel:+91",
-      },
+     
       {
         icon: CalendarIcon,
         label: "Meeting",
@@ -62,8 +52,8 @@ const contactSections = [
       {
         icon: MailIcon,
         label: "Email",
-        value: "media@xplorar.ai",
-        href: "mailto:media@xplorar.ai",
+        value: "media@xploar.ai",
+        href: "mailto:media@xploar.ai",
       },
       {
         icon: DownloadIcon,
@@ -175,7 +165,7 @@ const ContactForm = () => {
   return (
     <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm h-full">
       <h3 className="font-poppins text-xl font-bold text-cosmic-indigo mb-6">
-        Send Us a Message Directly
+        Write to Us
       </h3>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -283,11 +273,10 @@ const ContactPage = () => {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
           <h1 className="font-space-grotesk text-4xl lg:text-5xl font-bold text-cosmic-indigo mb-4">
-            Get in Touch with Xploar.ai
+            Have Questions? We're Here to Help
           </h1>
           <p className="text-lg text-card-text leading-relaxed">
-            Have Questions? We Have Answers. Whether you're a UPSC aspirant, an
-            educator, or an investor—we'd love to hear from you.
+            Whether you're a UPSC aspirant, an educator, or an investor—we'd love to hear from you.
           </p>
         </div>
 

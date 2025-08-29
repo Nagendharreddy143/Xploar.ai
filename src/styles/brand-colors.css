@@ -1,0 +1,71 @@
+/* Brand Color Overrides */
+.text-cosmic-indigo {
+    color: var(--color-primary) !important;
+}
+
+.text-electric-aqua {
+    color: var(--color-secondary) !important;
+}
+
+.text-void-black {
+    color: var(--color-dark) !important;
+}
+
+.text-card-text {
+    color: var(--color-text) !important;
+}
+
+.bg-cosmic-indigo {
+    background-color: var(--color-primary) !important;
+}
+
+.bg-electric-aqua {
+    background-color: var(--color-secondary) !important;
+}
+
+.hover\:text-cosmic-indigo:hover {
+    color: var(--color-primary) !important;
+}
+
+.hover\:text-electric-aqua:hover {
+    color: var(--color-secondary) !important;
+}
+
+.hover\:bg-electric-aqua:hover {
+    background-color: var(--color-secondary) !important;
+}
+
+.hover\:border-electric-aqua:hover {
+    border-color: var(--color-secondary) !important;
+}
+
+/* Gradient Overrides */
+.from-electric-aqua {
+    --tw-gradient-from: var(--color-secondary) !important;
+}
+
+.to-neon-lilac {
+    --tw-gradient-to: var(--color-primary) !important;
+}
+
+/* Background with opacity */
+.bg-electric-aqua\/10 {
+    background-color: rgb(var(--color-secondary-rgb) / 0.1) !important;
+}
+
+.bg-electric-aqua\/20 {
+    background-color: rgb(var(--color-secondary-rgb) / 0.2) !important;
+}
+
+.group-hover\:bg-electric-aqua\/20:group-hover {
+    background-color: rgb(var(--color-secondary-rgb) / 0.2) !important;
+}
+
+/* Border colors with opacity */
+.border-electric-aqua\/20 {
+    border-color: rgb(var(--color-secondary-rgb) / 0.2) !important;
+}
+
+.hover\:border-electric-aqua\/50:hover {
+    border-color: rgb(var(--color-secondary-rgb) / 0.5) !important;
+}
