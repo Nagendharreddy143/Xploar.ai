@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useAos from "../../hooks/useAos";
-// import { supabase } from "../../lib/supabase";
-// import { handleSupabaseError, validateEmail, sanitizeInput } from "../../lib/supabase-utils";
+import { supabase } from "../../lib/supabase";
+import { handleSupabaseError, validateEmail, sanitizeInput } from "../../lib/supabase-utils";
 
 // Importing the necessary icons from you r central file
 import {

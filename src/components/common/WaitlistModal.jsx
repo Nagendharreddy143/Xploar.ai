@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, memo } from "react";
-// import { supabase } from "../../lib/supabase";
-// import { handleSupabaseError, validateEmail, sanitizeInput } from "../../lib/supabase-utils";
+import { supabase } from "../../lib/supabase";
+import { handleSupabaseError, validateEmail, sanitizeInput } from "../../lib/supabase-utils";
 
 const WaitlistModal = memo(({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({

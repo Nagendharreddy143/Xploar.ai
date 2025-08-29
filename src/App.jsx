@@ -7,7 +7,6 @@ import ContactPage from "./pages/ContactPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
 import NotFound from "./pages/NotFound";
-import GoogleAnalytics from "./components/seo/GoogleAnalytics";
 import RedirectHome from "./components/common/RedirectHome";
 
 function App() {
@@ -28,35 +27,6 @@ function App() {
   };
 
   return (
-    <>
-      <GoogleAnalytics />
-      <Routes>
-        {/* Main pages with layout */}
-        <Route path="/" element={
-          <MainLayout pageName={getPageName()}>
-            <HomePage />
-          </MainLayout>
-        } />
-        <Route path="/about" element={
-          <MainLayout pageName={getPageName()}>
-            <AboutPage />
-          </MainLayout>
-        } />
-        <Route path="/contact" element={
-          <MainLayout pageName={getPageName()}>
-            <ContactPage />
-          </MainLayout>
-        } />
-        <Route path="/privacy-policy" element={
-          <MainLayout pageName={getPageName()}>
-            <PrivacyPolicy />
-          </MainLayout>
-        } />
-        <Route path="/terms-conditions" element={
-          <MainLayout pageName={getPageName()}>
-            <TermsConditions />
-          </MainLayout>
-        } />
     <>
       <RedirectHome />
       <Routes>
@@ -87,10 +57,6 @@ function App() {
         </MainLayout>
       } />
 
-        {/* 404 page without layout (standalone) */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </>
       {/* 404 page without layout (standalone) */}
       <Route path="*" element={<NotFound />} />
     </Routes>
