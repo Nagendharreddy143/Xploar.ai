@@ -9,7 +9,7 @@ const FounderCard = () => (
     {/* Founder Image */}
     <div className="relative w-full md:w-72 h-72 md:h-64 overflow-hidden">
       <img
-        src="/Xploar CEO.png"
+        src="/CEO_IMAGE.png"
         alt="Photo of Manohar Nayak Barmavath"
         className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-500"
       />
