@@ -199,7 +199,7 @@ const HeroSection = () => {
             >
               Start Your 100-Day Journey
             </button>
-            <a href="#demo" className="rounded-xl border border-white/20 px-4 sm:px-5 py-3 text-white/90 backdrop-blur hover:bg-white/5 text-sm sm:text-base">
+            <a href="/about#mission-vision" className="rounded-xl border border-white/20 px-4 sm:px-5 py-3 text-white/90 backdrop-blur hover:bg-white/5 text-sm sm:text-base">
               See It in 60 Seconds
             </a>
           </div>

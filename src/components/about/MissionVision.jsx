@@ -25,7 +25,7 @@ const MissionVision = () => {
   useAos();
 
   return (
-    <section className="py-20 lg:py-28 bg-white">
+    <section id="mission-vision" className="py-20 lg:py-28 bg-white">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
           {/* Left Column: Video */}
